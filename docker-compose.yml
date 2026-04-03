@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cancer360
+      POSTGRES_USER: cancer360
+      POSTGRES_PASSWORD: localdev
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cancer360"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "postgresql+asyncpg://cancer360:localdev@db:5432/cancer360"
+      DATABASE_URL_SYNC: "postgresql://cancer360:localdev@db:5432/cancer360"
+      SECRET_KEY: "dev-secret-key-change-in-production"
+      CORS_ORIGINS: "http://localhost:3000,http://localhost:5173"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  integration:
+    build:
+      context: ./integration_engine
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: "postgresql+asyncpg://cancer360:localdev@db:5432/cancer360"
+      DATABASE_URL_SYNC: "postgresql://cancer360:localdev@db:5432/cancer360"
+      DATA_DIR: /data
+      MLLP_PORT: "2575"
+      API_PORT: "8001"
+    ports:
+      - "2575:2575"
+      - "8001:8001"
+    volumes:
+      - ./data:/data
+      - ./integration_engine:/app
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
