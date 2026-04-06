@@ -1,0 +1,51 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "599e4b0b-e17d-40de-bcb5-5476745aadd7",
+  "meeting_timestamp": "2025-04-27T12:30:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Lung",
+  "bookings": [
+    {
+      "pathway_id": "651bff76-02e5-445d-b7ac-da4b8a7fc9e7",
+      "patient_nhs_number": "9402654232",
+      "patient_name": "Clarke, George"
+    },
+    {
+      "pathway_id": "45587b5f-679a-4da8-81ea-47ad7f52bb4d",
+      "patient_nhs_number": "7622683884",
+      "patient_name": "Phillips, Emily"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "f7f4192d-6e50-484f-b023-f466b93f576a",
+      "pathway_id": "651bff76-02e5-445d-b7ac-da4b8a7fc9e7",
+      "note_type": "outcome",
+      "note_text": "Formal MDT decision documented. Team consensus is for curative intent where feasible, with appropriate referral and follow-up actions allocated.",
+      "last_updated": "2025-04-30T14:15:00+01:00"
+    },
+    {
+      "note_id": "43ff0b20-fdaa-434c-b3f7-edfc38aabe12",
+      "pathway_id": "45587b5f-679a-4da8-81ea-47ad7f52bb4d",
+      "note_type": "general",
+      "note_text": "Patient discussed in routine MDT forum. Notes reflect the agreed next step and confirm that outstanding items will be tracked before the next review.",
+      "last_updated": "2025-04-28T08:00:00+01:00"
+    },
+    {
+      "note_id": "9db8c70a-6601-44f1-9704-c35067cb0bd9",
+      "pathway_id": "45587b5f-679a-4da8-81ea-47ad7f52bb4d",
+      "note_type": "histology",
+      "note_text": "Histology reviewed at MDT. Tissue confirms malignant pathology in keeping with the suspected primary site. Receptor and grading information noted for treatment planning.",
+      "last_updated": "2025-04-29T08:15:00+01:00"
+    },
+    {
+      "note_id": "2578d267-0108-4ba8-bd3b-392ab5231597",
+      "pathway_id": "45587b5f-679a-4da8-81ea-47ad7f52bb4d",
+      "note_type": "outcome",
+      "note_text": "MDT outcome recorded. Case accepted for onward management at Queen Elizabeth Hospital King's Lynn. Recommendation is to proceed to specialist clinic review and implement the agreed pathway.",
+      "last_updated": "2025-04-28T09:30:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

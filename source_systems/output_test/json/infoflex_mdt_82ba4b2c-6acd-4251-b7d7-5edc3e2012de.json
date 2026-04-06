@@ -1,0 +1,32 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "82ba4b2c-6acd-4251-b7d7-5edc3e2012de",
+  "meeting_timestamp": "2025-08-18T09:45:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Prostate",
+  "bookings": [
+    {
+      "pathway_id": "4752f909-ecd8-4041-9a6a-099e997bd912",
+      "patient_nhs_number": "2104709520",
+      "patient_name": "Baker, Lily"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "60245c02-1024-496b-b8aa-07a30fd28242",
+      "pathway_id": "4752f909-ecd8-4041-9a6a-099e997bd912",
+      "note_type": "outcome",
+      "note_text": "MDT outcome recorded. Case accepted for onward management at Norfolk and Norwich University Hospital. Recommendation is to proceed to specialist clinic review and implement the agreed pathway.",
+      "last_updated": "2025-08-21T17:00:00+01:00"
+    },
+    {
+      "note_id": "6d09ecab-7e40-4898-9b5a-58d490ac1ae4",
+      "pathway_id": "4752f909-ecd8-4041-9a6a-099e997bd912",
+      "note_type": "outcome",
+      "note_text": "MDT outcome recorded. Case accepted for onward management at Norfolk and Norwich University Hospital. Recommendation is to proceed to specialist clinic review and implement the agreed pathway.",
+      "last_updated": "2025-08-21T14:45:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

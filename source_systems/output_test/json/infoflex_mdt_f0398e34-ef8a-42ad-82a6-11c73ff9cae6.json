@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "f0398e34-ef8a-42ad-82a6-11c73ff9cae6",
+  "meeting_timestamp": "2024-11-29T09:45:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Upper GI",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

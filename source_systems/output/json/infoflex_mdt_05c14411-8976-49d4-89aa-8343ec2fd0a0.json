@@ -1,0 +1,25 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "05c14411-8976-49d4-89aa-8343ec2fd0a0",
+  "meeting_timestamp": "2025-08-25T16:30:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Lung",
+  "bookings": [
+    {
+      "pathway_id": "9e45f436-91be-4f3c-8864-5cd7ee872ca7",
+      "patient_nhs_number": "4303911712",
+      "patient_name": "Hughes, Emilia"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "a013603f-8a73-4e78-8b33-a1111539ce95",
+      "pathway_id": "9e45f436-91be-4f3c-8864-5cd7ee872ca7",
+      "note_type": "outcome",
+      "note_text": "MDT outcome recorded. Case accepted for onward management at Norfolk and Norwich University Hospital. Recommendation is to proceed to specialist clinic review and implement the agreed pathway.",
+      "last_updated": "2025-08-28T16:30:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

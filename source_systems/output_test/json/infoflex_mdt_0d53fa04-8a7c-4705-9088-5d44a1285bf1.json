@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "0d53fa04-8a7c-4705-9088-5d44a1285bf1",
+  "meeting_timestamp": "2024-01-02T12:30:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Urology",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.375969+01:00"
+}

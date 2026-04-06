@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "0dda2dc3-690b-40d1-a4d4-425d4f859618",
+  "meeting_timestamp": "2025-01-08T08:45:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Haematology",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.684973+01:00"
+}

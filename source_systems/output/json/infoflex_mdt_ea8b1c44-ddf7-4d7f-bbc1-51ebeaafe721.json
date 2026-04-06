@@ -1,0 +1,32 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "ea8b1c44-ddf7-4d7f-bbc1-51ebeaafe721",
+  "meeting_timestamp": "2025-05-05T16:30:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Gynaecology",
+  "bookings": [
+    {
+      "pathway_id": "5c42a46b-1a3d-4508-9614-d7f797ceca45",
+      "patient_nhs_number": "9806990161",
+      "patient_name": "Simpson, Isabelle"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "1341f17d-ab0c-46bc-809b-941726f1b1aa",
+      "pathway_id": "5c42a46b-1a3d-4508-9614-d7f797ceca45",
+      "note_type": "outcome",
+      "note_text": "Formal MDT decision documented. Team consensus is for curative intent where feasible, with appropriate referral and follow-up actions allocated.",
+      "last_updated": "2025-05-07T11:15:00+01:00"
+    },
+    {
+      "note_id": "1678295d-02e0-4f37-8070-9b6b08d248d3",
+      "pathway_id": "5c42a46b-1a3d-4508-9614-d7f797ceca45",
+      "note_type": "radiology",
+      "note_text": "Patient discussed at Gynaecology MDT. Imaging reviewed and appearances remain suspicious for malignancy. Recommend correlation with histology and proceed with next staging step.",
+      "last_updated": "2025-05-08T13:00:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.684973+01:00"
+}

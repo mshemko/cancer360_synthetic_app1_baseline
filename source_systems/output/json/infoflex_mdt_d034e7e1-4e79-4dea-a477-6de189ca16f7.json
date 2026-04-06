@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "d034e7e1-4e79-4dea-a477-6de189ca16f7",
+  "meeting_timestamp": "2024-07-28T13:45:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Head & Neck",
+  "bookings": [
+    {
+      "pathway_id": "090b746c-d2ae-4ad8-83ba-0e782aa95b6c",
+      "patient_nhs_number": "0229014763",
+      "patient_name": "Jackson, Sienna"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

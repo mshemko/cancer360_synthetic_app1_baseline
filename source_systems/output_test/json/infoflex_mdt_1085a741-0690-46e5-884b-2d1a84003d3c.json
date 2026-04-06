@@ -1,0 +1,22 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "1085a741-0690-46e5-884b-2d1a84003d3c",
+  "meeting_timestamp": "2024-01-02T12:45:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Head & Neck",
+  "bookings": [
+    {
+      "pathway_id": "3b03e3b2-e4c4-47f2-857a-0c0ad8009849",
+      "patient_nhs_number": "1111615284",
+      "patient_name": "George, Theodore"
+    },
+    {
+      "pathway_id": "3c6dc249-ff1f-489f-8b7a-484ed4cdb7ee",
+      "patient_nhs_number": "0229014763",
+      "patient_name": "Jackson, Sienna"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

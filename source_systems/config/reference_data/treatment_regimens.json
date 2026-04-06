@@ -1,0 +1,30 @@
+{
+  "chemotherapy": [
+    "FOLFOX",
+    "FOLFIRI",
+    "Carboplatin/Paclitaxel",
+    "Cisplatin/Gemcitabine",
+    "R-CHOP"
+  ],
+  "radiotherapy": [
+    "Radical radiotherapy",
+    "Palliative radiotherapy",
+    "SABR",
+    "IMRT",
+    "VMAT"
+  ],
+  "surgery": [
+    "Wide local excision",
+    "Mastectomy",
+    "Lobectomy",
+    "Left hemicolectomy",
+    "Excision of lesion of tongue"
+  ],
+  "immunotherapy": [
+    "Pembrolizumab",
+    "Nivolumab",
+    "Atezolizumab",
+    "Durvalumab",
+    "Ipilimumab"
+  ]
+}

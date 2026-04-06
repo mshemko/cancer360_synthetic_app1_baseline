@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "cb06a76f-a622-4bb2-a2d6-a4dd2d0868a2",
+  "meeting_timestamp": "2025-10-14T13:45:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Gynaecology",
+  "bookings": [
+    {
+      "pathway_id": "5c42a46b-1a3d-4508-9614-d7f797ceca45",
+      "patient_nhs_number": "9806990161",
+      "patient_name": "Simpson, Isabelle"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.684973+01:00"
+}

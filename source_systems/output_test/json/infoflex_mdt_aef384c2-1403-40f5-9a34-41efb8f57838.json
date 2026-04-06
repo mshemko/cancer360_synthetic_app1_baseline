@@ -1,0 +1,30 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "aef384c2-1403-40f5-9a34-41efb8f57838",
+  "meeting_timestamp": "2024-03-31T13:45:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Upper GI",
+  "bookings": [
+    {
+      "pathway_id": "ef92a46c-114e-43c8-87ce-e6d9acdd7902",
+      "patient_nhs_number": "6036690967",
+      "patient_name": "Turner, Lucy"
+    },
+    {
+      "pathway_id": "9f112934-bc8a-4baf-87d0-53deec19dc27",
+      "patient_nhs_number": "9190586514",
+      "patient_name": "Spencer, Lucy"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "f65734d3-4607-4c82-bc1b-4509424736dd",
+      "pathway_id": "ef92a46c-114e-43c8-87ce-e6d9acdd7902",
+      "note_type": "radiology",
+      "note_text": "Patient discussed at Upper GI MDT. Imaging reviewed and appearances remain suspicious for malignancy. Recommend correlation with histology and proceed with next staging step.",
+      "last_updated": "2024-04-02T17:30:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

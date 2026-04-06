@@ -1,0 +1,10 @@
+[
+  {"histology_type": "Histology, tissue"},
+  {"histology_type": "Histopathology, tissue"},
+  {"histology_type": "Non-gynaecology cytology, specimen"},
+  {"histology_type": "Fine needle aspiration"},
+  {"histology_type": "Core biopsy"},
+  {"histology_type": "Excision biopsy"},
+  {"histology_type": "Bone marrow biopsy"},
+  {"histology_type": "Frozen section"}
+]

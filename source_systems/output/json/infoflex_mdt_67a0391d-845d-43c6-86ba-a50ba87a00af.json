@@ -1,0 +1,22 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "67a0391d-845d-43c6-86ba-a50ba87a00af",
+  "meeting_timestamp": "2025-02-26T13:45:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Lung",
+  "bookings": [
+    {
+      "pathway_id": "4ed7160c-c878-49fd-ae9f-9581383f5472",
+      "patient_nhs_number": "9402654232",
+      "patient_name": "Clarke, George"
+    },
+    {
+      "pathway_id": "1009b79a-ea3d-4847-8c11-04c5832f7898",
+      "patient_nhs_number": "7622683884",
+      "patient_name": "Phillips, Emily"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

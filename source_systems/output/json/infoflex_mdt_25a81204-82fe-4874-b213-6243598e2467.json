@@ -1,0 +1,25 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "25a81204-82fe-4874-b213-6243598e2467",
+  "meeting_timestamp": "2025-10-30T13:00:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Prostate",
+  "bookings": [
+    {
+      "pathway_id": "915ca722-054b-41bb-8448-54a3afe57cd1",
+      "patient_nhs_number": "2104709520",
+      "patient_name": "Baker, Lily"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "8b3e52a5-4ff8-4670-a2a8-43ce426356fb",
+      "pathway_id": "915ca722-054b-41bb-8448-54a3afe57cd1",
+      "note_type": "radiology",
+      "note_text": "Patient discussed at Prostate MDT. Imaging reviewed and appearances remain suspicious for malignancy. Recommend correlation with histology and proceed with next staging step.",
+      "last_updated": "2025-11-01T08:45:00+00:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

@@ -1,0 +1,68 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "56f1a625-bbd5-4f7a-8e4a-f3154443e229",
+  "meeting_timestamp": "2024-07-04T13:45:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Colorectal",
+  "bookings": [
+    {
+      "pathway_id": "b5accf4f-c578-4f1f-ae7f-e0cbab9c02eb",
+      "patient_nhs_number": "1473799651",
+      "patient_name": "Ellis, Daisy"
+    },
+    {
+      "pathway_id": "3d6ffb6a-89a9-4dea-b2d9-5137a2d950d6",
+      "patient_nhs_number": "4013990490",
+      "patient_name": "Evans, Sophia"
+    },
+    {
+      "pathway_id": "daa07e50-6c2f-4e98-bfec-304d0be26336",
+      "patient_nhs_number": "5281685058",
+      "patient_name": "Edwards, Teddy"
+    },
+    {
+      "pathway_id": "b0dc830f-4ce4-412d-8f83-5021a76f2d0b",
+      "patient_nhs_number": "5220472771",
+      "patient_name": "Phillips, Harper"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "724b4aae-b129-493b-bc83-b23d24e46ac1",
+      "pathway_id": "3d6ffb6a-89a9-4dea-b2d9-5137a2d950d6",
+      "note_type": "clinical_opinion",
+      "note_text": "Clinical opinion recorded at MDT. Team advises specialist referral and timely diagnostic completion before final treatment commitment.",
+      "last_updated": "2024-07-05T15:00:00+01:00"
+    },
+    {
+      "note_id": "c3af1d33-89a7-44f7-9967-9c2e5f1767fa",
+      "pathway_id": "3d6ffb6a-89a9-4dea-b2d9-5137a2d950d6",
+      "note_type": "histology",
+      "note_text": "Pathology discussed at MDT. Microscopy supports the working diagnosis and sample adequacy was considered satisfactory. Clinical team to use result for decision to treat.",
+      "last_updated": "2024-07-06T08:30:00+01:00"
+    },
+    {
+      "note_id": "ade62c2c-aa08-454a-8a18-c5ea1b639139",
+      "pathway_id": "daa07e50-6c2f-4e98-bfec-304d0be26336",
+      "note_type": "radiology",
+      "note_text": "Patient discussed at Colorectal MDT. Imaging reviewed and appearances remain suspicious for malignancy. Recommend correlation with histology and proceed with next staging step.",
+      "last_updated": "2024-07-06T15:15:00+01:00"
+    },
+    {
+      "note_id": "5dcb2413-3716-4b70-aebe-7768ccde8fc8",
+      "pathway_id": "daa07e50-6c2f-4e98-bfec-304d0be26336",
+      "note_type": "general",
+      "note_text": "Case reviewed at scheduled MDT. Performance status, comorbidities, and current investigations were considered. Further coordination with the booking team is required.",
+      "last_updated": "2024-07-05T12:45:00+01:00"
+    },
+    {
+      "note_id": "561e7870-1a5a-486b-9f4a-a8f435e4ab87",
+      "pathway_id": "daa07e50-6c2f-4e98-bfec-304d0be26336",
+      "note_type": "clinical_opinion",
+      "note_text": "Consultant opinion at MDT favours treatment escalation given current disease burden. Surgical and oncological options were both reviewed with a preference for multidisciplinary follow-up.",
+      "last_updated": "2024-07-07T17:15:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

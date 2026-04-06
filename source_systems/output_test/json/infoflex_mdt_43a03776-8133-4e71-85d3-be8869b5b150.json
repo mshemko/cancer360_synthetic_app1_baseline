@@ -1,0 +1,22 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "43a03776-8133-4e71-85d3-be8869b5b150",
+  "meeting_timestamp": "2024-01-03T16:45:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Lung",
+  "bookings": [
+    {
+      "pathway_id": "d1b79a0e-429d-4f20-8766-0f7d8459e679",
+      "patient_nhs_number": "7986872772",
+      "patient_name": "Moore, Louie"
+    },
+    {
+      "pathway_id": "942a15cd-c4b9-4bf3-9e42-19453aa6cb76",
+      "patient_nhs_number": "3171274841",
+      "patient_name": "Pearce, Layla"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

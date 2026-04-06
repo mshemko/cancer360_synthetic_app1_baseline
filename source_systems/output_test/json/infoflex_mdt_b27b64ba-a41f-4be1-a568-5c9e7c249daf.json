@@ -1,0 +1,25 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "b27b64ba-a41f-4be1-a568-5c9e7c249daf",
+  "meeting_timestamp": "2024-05-26T08:00:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Skin",
+  "bookings": [
+    {
+      "pathway_id": "c7767a53-5ac5-428e-93de-9014c5edaa43",
+      "patient_nhs_number": "0532931831",
+      "patient_name": "Harris, Emily"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "798f06b1-e276-49c1-9e50-f3c9ebea2bdc",
+      "pathway_id": "c7767a53-5ac5-428e-93de-9014c5edaa43",
+      "note_type": "histology",
+      "note_text": "Histology reviewed at MDT. Tissue confirms malignant pathology in keeping with the suspected primary site. Receptor and grading information noted for treatment planning.",
+      "last_updated": "2024-05-29T16:30:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.375969+01:00"
+}

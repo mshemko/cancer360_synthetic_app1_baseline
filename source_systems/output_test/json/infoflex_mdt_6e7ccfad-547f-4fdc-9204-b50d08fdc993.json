@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "6e7ccfad-547f-4fdc-9204-b50d08fdc993",
+  "meeting_timestamp": "2024-12-28T12:30:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Lung",
+  "bookings": [
+    {
+      "pathway_id": "5753b195-a217-40ae-8fff-eff153f24564",
+      "patient_nhs_number": "3315098395",
+      "patient_name": "Roberts, Thomas"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

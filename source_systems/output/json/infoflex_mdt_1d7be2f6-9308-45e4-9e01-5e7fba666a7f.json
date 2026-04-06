@@ -1,0 +1,61 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "1d7be2f6-9308-45e4-9e01-5e7fba666a7f",
+  "meeting_timestamp": "2024-01-04T08:00:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Colorectal",
+  "bookings": [
+    {
+      "pathway_id": "b5accf4f-c578-4f1f-ae7f-e0cbab9c02eb",
+      "patient_nhs_number": "1473799651",
+      "patient_name": "Ellis, Daisy"
+    },
+    {
+      "pathway_id": "3d6ffb6a-89a9-4dea-b2d9-5137a2d950d6",
+      "patient_nhs_number": "4013990490",
+      "patient_name": "Evans, Sophia"
+    },
+    {
+      "pathway_id": "900cca47-01c3-4980-9c33-09ca94da3f13",
+      "patient_nhs_number": "0050455621",
+      "patient_name": "Bennett, Eleanor"
+    },
+    {
+      "pathway_id": "4fbcb522-0f9a-486a-a144-753f68cca691",
+      "patient_nhs_number": "3689980941",
+      "patient_name": "Gibson, Elizabeth"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "89acaec8-b6e1-4be9-9494-366d280d1d85",
+      "pathway_id": "900cca47-01c3-4980-9c33-09ca94da3f13",
+      "note_type": "general",
+      "note_text": "Case reviewed at scheduled MDT. Performance status, comorbidities, and current investigations were considered. Further coordination with the booking team is required.",
+      "last_updated": "2024-01-07T16:45:00+00:00"
+    },
+    {
+      "note_id": "c466f4b0-c08a-4dce-8fb4-c46dbb68f53a",
+      "pathway_id": "4fbcb522-0f9a-486a-a144-753f68cca691",
+      "note_type": "radiology",
+      "note_text": "Radiology findings presented at MDT. Cross-sectional imaging demonstrates a focal lesion without definite distant disease. Consensus is to progress to definitive treatment planning.",
+      "last_updated": "2024-01-07T10:00:00+00:00"
+    },
+    {
+      "note_id": "64d82ad4-273d-45c8-98c9-1d792b71a6da",
+      "pathway_id": "4fbcb522-0f9a-486a-a144-753f68cca691",
+      "note_type": "radiology",
+      "note_text": "Radiology findings presented at MDT. Cross-sectional imaging demonstrates a focal lesion without definite distant disease. Consensus is to progress to definitive treatment planning.",
+      "last_updated": "2024-01-07T10:45:00+00:00"
+    },
+    {
+      "note_id": "76958487-aa08-43d8-9c3b-12f698a08dca",
+      "pathway_id": "4fbcb522-0f9a-486a-a144-753f68cca691",
+      "note_type": "clinical_opinion",
+      "note_text": "Clinical opinion recorded at MDT. Team advises specialist referral and timely diagnostic completion before final treatment commitment.",
+      "last_updated": "2024-01-05T09:00:00+00:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

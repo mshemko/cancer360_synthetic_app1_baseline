@@ -1,0 +1,18 @@
+[
+  {"exam_type": "CT Chest", "modality": "CT"},
+  {"exam_type": "CT Abdomen and Pelvis", "modality": "CT"},
+  {"exam_type": "CT Thorax abdomen pelvis with contrast", "modality": "CT"},
+  {"exam_type": "MRI Brain", "modality": "MRI"},
+  {"exam_type": "MRI Pelvis and rectum", "modality": "MRI"},
+  {"exam_type": "MRI Lower leg Lt", "modality": "MRI"},
+  {"exam_type": "MRI Wrist Both", "modality": "MRI"},
+  {"exam_type": "MRI Groin Right", "modality": "MRI"},
+  {"exam_type": "Chest X-ray", "modality": "XR"},
+  {"exam_type": "Abdominal X-ray", "modality": "XR"},
+  {"exam_type": "PET-CT", "modality": "PET"},
+  {"exam_type": "Ultrasound Abdomen", "modality": "US"},
+  {"exam_type": "US Pelvis TA and transvaginal", "modality": "US"},
+  {"exam_type": "US Endoanal sphincter scan", "modality": "US"},
+  {"exam_type": "NM Bone thorax SPECT CT", "modality": "NM"},
+  {"exam_type": "CT Pelvis", "modality": "CT"}
+]

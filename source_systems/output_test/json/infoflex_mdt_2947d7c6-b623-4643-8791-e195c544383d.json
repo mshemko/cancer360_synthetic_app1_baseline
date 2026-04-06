@@ -1,0 +1,44 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "2947d7c6-b623-4643-8791-e195c544383d",
+  "meeting_timestamp": "2024-05-02T16:00:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Lung",
+  "bookings": [
+    {
+      "pathway_id": "c3d4f076-b9d9-4bfe-b12b-da85cd7ed12c",
+      "patient_nhs_number": "7672423886",
+      "patient_name": "Moore, Zachary"
+    },
+    {
+      "pathway_id": "d1b79a0e-429d-4f20-8766-0f7d8459e679",
+      "patient_nhs_number": "7986872772",
+      "patient_name": "Moore, Louie"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "32ca23dd-0010-4533-8c5b-4a539bbb2517",
+      "pathway_id": "c3d4f076-b9d9-4bfe-b12b-da85cd7ed12c",
+      "note_type": "clinical_opinion",
+      "note_text": "Consultant opinion at MDT favours treatment escalation given current disease burden. Surgical and oncological options were both reviewed with a preference for multidisciplinary follow-up.",
+      "last_updated": "2024-05-05T12:30:00+01:00"
+    },
+    {
+      "note_id": "7ea8f75f-cf69-4740-8f40-8b466c09cc02",
+      "pathway_id": "d1b79a0e-429d-4f20-8766-0f7d8459e679",
+      "note_type": "general",
+      "note_text": "Patient discussed in routine MDT forum. Notes reflect the agreed next step and confirm that outstanding items will be tracked before the next review.",
+      "last_updated": "2024-05-03T10:15:00+01:00"
+    },
+    {
+      "note_id": "5d52d521-1c62-473b-b672-0877c9270da2",
+      "pathway_id": "d1b79a0e-429d-4f20-8766-0f7d8459e679",
+      "note_type": "general",
+      "note_text": "Case reviewed at scheduled MDT. Performance status, comorbidities, and current investigations were considered. Further coordination with the booking team is required.",
+      "last_updated": "2024-05-03T16:00:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

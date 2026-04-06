@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "3947c4f6-56ad-4cbd-af8d-edd108bf87e1",
+  "meeting_timestamp": "2025-03-14T09:30:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Skin",
+  "bookings": [
+    {
+      "pathway_id": "81a32ae6-8411-4498-a007-69ddaf28fad2",
+      "patient_nhs_number": "7278755883",
+      "patient_name": "Webb, Logan"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.375969+01:00"
+}

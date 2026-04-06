@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "55470d83-4b97-439a-87a0-14eb66cdc18f",
+  "meeting_timestamp": "2024-01-11T09:30:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Haematology",
+  "bookings": [
+    {
+      "pathway_id": "b5d6124d-60dd-4fc1-b39c-732414d90a06",
+      "patient_nhs_number": "6811775890",
+      "patient_name": "Smith, Lucy"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.684973+01:00"
+}

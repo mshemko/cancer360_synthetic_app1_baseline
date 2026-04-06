@@ -1,0 +1,30 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "270e57c5-6430-4ac8-8d8a-71f7d12f2346",
+  "meeting_timestamp": "2024-10-29T13:00:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Lung",
+  "bookings": [
+    {
+      "pathway_id": "51c8f0bd-8cf3-4c8b-81a9-576ed693f4bc",
+      "patient_nhs_number": "3309232719",
+      "patient_name": "Lee, Freddie"
+    },
+    {
+      "pathway_id": "d18a655f-9c13-49fc-82f7-46a537125671",
+      "patient_nhs_number": "6999386773",
+      "patient_name": "Mitchell, Lily"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "8c30fbfa-db54-4dd8-880f-a3c1a8f7a61b",
+      "pathway_id": "d18a655f-9c13-49fc-82f7-46a537125671",
+      "note_type": "outcome",
+      "note_text": "MDT outcome recorded. Case accepted for onward management at Queen Elizabeth Hospital King's Lynn. Recommendation is to proceed to specialist clinic review and implement the agreed pathway.",
+      "last_updated": "2024-10-30T11:45:00+00:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

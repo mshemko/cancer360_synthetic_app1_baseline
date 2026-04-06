@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "d0bf83cd-5606-48af-bf7b-9684dd54093a",
+  "meeting_timestamp": "2024-05-27T16:30:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Breast",
+  "bookings": [
+    {
+      "pathway_id": "94fc9c5e-b528-433c-ac63-64dbf0114793",
+      "patient_nhs_number": "2175946479",
+      "patient_name": "Kelly, William"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.373976+01:00"
+}

@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "404332ce-6bca-4992-a157-d32abc2012c0",
+  "meeting_timestamp": "2025-02-13T12:00:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Gynaecology",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.684973+01:00"
+}

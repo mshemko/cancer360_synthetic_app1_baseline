@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "a9af6d8d-9a0d-4108-8278-f2288e71fd65",
+  "meeting_timestamp": "2024-08-18T09:45:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Prostate",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

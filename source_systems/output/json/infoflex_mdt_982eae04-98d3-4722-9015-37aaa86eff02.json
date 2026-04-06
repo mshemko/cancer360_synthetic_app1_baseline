@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "982eae04-98d3-4722-9015-37aaa86eff02",
+  "meeting_timestamp": "2025-01-09T12:30:00+00:00",
+  "mdt_status": "Cancelled",
+  "cancer_site": "Sarcoma",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.684973+01:00"
+}

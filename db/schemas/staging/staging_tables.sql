@@ -1,0 +1,162 @@
+CREATE TABLE IF NOT EXISTS staging.pas_patient (
+    id SERIAL PRIMARY KEY,
+    correlation_id VARCHAR,
+    pas_patient_id VARCHAR,
+    mrn VARCHAR,
+    nhs_number VARCHAR,
+    first_name VARCHAR,
+    surname VARCHAR,
+    title VARCHAR,
+    sex VARCHAR,
+    date_of_birth VARCHAR,
+    date_of_death VARCHAR,
+    address_line_1 VARCHAR,
+    address_line_2 VARCHAR,
+    postcode VARCHAR,
+    phone_number VARCHAR,
+    registered_gp VARCHAR,
+    next_of_kin_name VARCHAR,
+    next_of_kin_number VARCHAR,
+    processed_at TIMESTAMPTZ DEFAULT NOW(),
+    mapping_status VARCHAR DEFAULT 'pending'
+);
+
+CREATE TABLE IF NOT EXISTS staging.somerset_pathway (
+    id SERIAL PRIMARY KEY,
+    correlation_id VARCHAR,
+    somerset_pathway_id VARCHAR,
+    person_id VARCHAR,
+    mrn VARCHAR,
+    nhs_number VARCHAR,
+    cancer_site VARCHAR,
+    cancer_sub_site VARCHAR,
+    referral_route VARCHAR,
+    referral_received_date VARCHAR,
+    first_seen_date VARCHAR,
+    diagnosis_date VARCHAR,
+    diagnosis VARCHAR,
+    diagnosis_icd10_code VARCHAR,
+    decision_to_treat_date VARCHAR,
+    first_treatment_date VARCHAR,
+    first_treatment_type VARCHAR,
+    pathway_status VARCHAR,
+    pathway_closed_date VARCHAR,
+    hospital_site VARCHAR,
+    source_last_updated VARCHAR,
+    processed_at TIMESTAMPTZ DEFAULT NOW(),
+    mapping_status VARCHAR DEFAULT 'pending'
+);
+
+CREATE TABLE IF NOT EXISTS staging.pathology_hl7 (
+    id SERIAL PRIMARY KEY,
+    correlation_id VARCHAR,
+    message_control_id VARCHAR,
+    person_id VARCHAR,
+    mrn VARCHAR,
+    nhs_number VARCHAR,
+    histology_type VARCHAR,
+    priority VARCHAR,
+    histology_status VARCHAR,
+    sample_taken_date VARCHAR,
+    received_at_lab_date VARCHAR,
+    report_prepared_date VARCHAR,
+    report_authorised_date VARCHAR,
+    report_text VARCHAR,
+    source_facility VARCHAR,
+    processed_at TIMESTAMPTZ DEFAULT NOW(),
+    mapping_status VARCHAR DEFAULT 'pending'
+);
+
+CREATE TABLE IF NOT EXISTS staging.radiology_hl7 (
+    id SERIAL PRIMARY KEY,
+    correlation_id VARCHAR,
+    message_control_id VARCHAR,
+    person_id VARCHAR,
+    mrn VARCHAR,
+    nhs_number VARCHAR,
+    radiology_exam_type VARCHAR,
+    modality VARCHAR,
+    exam_status VARCHAR,
+    priority VARCHAR,
+    ordered_date VARCHAR,
+    scheduled_date VARCHAR,
+    attendance_date VARCHAR,
+    report_authorised_date VARCHAR,
+    report_text VARCHAR,
+    source_facility VARCHAR,
+    processed_at TIMESTAMPTZ DEFAULT NOW(),
+    mapping_status VARCHAR DEFAULT 'pending'
+);
+
+CREATE TABLE IF NOT EXISTS staging.sact_treatment (
+    id SERIAL PRIMARY KEY,
+    correlation_id VARCHAR,
+    treatment_id VARCHAR,
+    person_id VARCHAR,
+    mrn VARCHAR,
+    nhs_number VARCHAR,
+    treatment_type VARCHAR,
+    regimen_name VARCHAR,
+    treatment_status VARCHAR,
+    ordered_date VARCHAR,
+    scheduled_date VARCHAR,
+    attendance_date VARCHAR,
+    prescription_status VARCHAR,
+    poa_attendance_id VARCHAR,
+    processed_at TIMESTAMPTZ DEFAULT NOW(),
+    mapping_status VARCHAR DEFAULT 'pending'
+);
+
+CREATE TABLE IF NOT EXISTS staging.mdt_source (
+    id SERIAL PRIMARY KEY,
+    correlation_id VARCHAR,
+    meeting_id VARCHAR,
+    pathway_id VARCHAR,
+    person_id VARCHAR,
+    meeting_timestamp VARCHAR,
+    mdt_status VARCHAR,
+    note_id VARCHAR,
+    note_type VARCHAR,
+    note_text VARCHAR,
+    updated_timestamp VARCHAR,
+    processed_at TIMESTAMPTZ DEFAULT NOW(),
+    mapping_status VARCHAR DEFAULT 'pending'
+);
+
+CREATE TABLE IF NOT EXISTS staging.endoscopy_source (
+    id SERIAL PRIMARY KEY,
+    correlation_id VARCHAR,
+    endoscopy_id VARCHAR,
+    person_id VARCHAR,
+    mrn VARCHAR,
+    nhs_number VARCHAR,
+    endoscopy_type VARCHAR,
+    modality VARCHAR,
+    priority VARCHAR,
+    exam_status VARCHAR,
+    ordered_date VARCHAR,
+    scheduled_date VARCHAR,
+    attendance_date VARCHAR,
+    report_authorised_date VARCHAR,
+    report_text VARCHAR,
+    processed_at TIMESTAMPTZ DEFAULT NOW(),
+    mapping_status VARCHAR DEFAULT 'pending'
+);
+
+CREATE TABLE IF NOT EXISTS staging.eRS_referral (
+    id SERIAL PRIMARY KEY,
+    correlation_id VARCHAR,
+    ers_referral_id VARCHAR,
+    person_id VARCHAR,
+    mrn VARCHAR,
+    nhs_number VARCHAR,
+    referral_source VARCHAR,
+    referral_route VARCHAR,
+    referral_received_date VARCHAR,
+    priority VARCHAR,
+    speciality VARCHAR,
+    cancer_site VARCHAR,
+    hospital_site VARCHAR,
+    processed_at TIMESTAMPTZ DEFAULT NOW(),
+    mapping_status VARCHAR DEFAULT 'pending'
+);

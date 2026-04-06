@@ -1,0 +1,32 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "283c66e6-2567-4b73-b90a-6dece53c68c3",
+  "meeting_timestamp": "2024-01-01T16:00:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Skin",
+  "bookings": [
+    {
+      "pathway_id": "50b7a38b-7497-48b0-84d6-348441e975cc",
+      "patient_nhs_number": "0532931831",
+      "patient_name": "Harris, Emily"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "400055c4-cbe8-4b52-809d-a33bd9b390dc",
+      "pathway_id": "50b7a38b-7497-48b0-84d6-348441e975cc",
+      "note_type": "radiology",
+      "note_text": "Patient discussed at Skin MDT. Imaging reviewed and appearances remain suspicious for malignancy. Recommend correlation with histology and proceed with next staging step.",
+      "last_updated": "2024-01-03T17:30:00+00:00"
+    },
+    {
+      "note_id": "098ebb5f-b8bd-465e-b2e6-ba18b007f3b2",
+      "pathway_id": "50b7a38b-7497-48b0-84d6-348441e975cc",
+      "note_type": "radiology",
+      "note_text": "Radiology findings presented at MDT. Cross-sectional imaging demonstrates a focal lesion without definite distant disease. Consensus is to progress to definitive treatment planning.",
+      "last_updated": "2024-01-03T12:30:00+00:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.684973+01:00"
+}

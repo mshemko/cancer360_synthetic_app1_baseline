@@ -1,0 +1,62 @@
+{
+  "Breast": [
+    {"code": "C50.1", "description": "Malignant neoplasm of central portion of breast"},
+    {"code": "C50.4", "description": "Malignant neoplasm of upper-outer quadrant of breast"},
+    {"code": "C50.9", "description": "Malignant neoplasm of breast, unspecified"}
+  ],
+  "Lung": [
+    {"code": "C34.1", "description": "Malignant neoplasm of upper lobe, bronchus or lung"},
+    {"code": "C34.2", "description": "Malignant neoplasm of middle lobe, bronchus or lung"},
+    {"code": "C34.9", "description": "Malignant neoplasm of bronchus or lung, unspecified"}
+  ],
+  "Colorectal": [
+    {"code": "C18.2", "description": "Malignant neoplasm of ascending colon"},
+    {"code": "C18.7", "description": "Malignant neoplasm of sigmoid colon"},
+    {"code": "C20", "description": "Malignant neoplasm of rectum"}
+  ],
+  "Prostate": [
+    {"code": "C61", "description": "Malignant neoplasm of prostate"},
+    {"code": "D07.5", "description": "Carcinoma in situ of prostate"},
+    {"code": "N42.3", "description": "Dysplasia of prostate"}
+  ],
+  "Head & Neck": [
+    {"code": "C02.9", "description": "Malignant neoplasm of tongue, unspecified"},
+    {"code": "C10.9", "description": "Malignant neoplasm of oropharynx, unspecified"},
+    {"code": "C32.9", "description": "Malignant neoplasm of larynx, unspecified"}
+  ],
+  "Upper GI": [
+    {"code": "C15.9", "description": "Malignant neoplasm of oesophagus, unspecified"},
+    {"code": "C16.9", "description": "Malignant neoplasm of stomach, unspecified"},
+    {"code": "C25.9", "description": "Malignant neoplasm of pancreas, unspecified"}
+  ],
+  "Haematology": [
+    {"code": "C81.9", "description": "Hodgkin lymphoma, unspecified"},
+    {"code": "C90.0", "description": "Multiple myeloma"},
+    {"code": "C92.0", "description": "Acute myeloblastic leukaemia"}
+  ],
+  "Gynaecology": [
+    {"code": "C53.9", "description": "Malignant neoplasm of cervix uteri, unspecified"},
+    {"code": "C54.1", "description": "Malignant neoplasm of endometrium"},
+    {"code": "C56.9", "description": "Malignant neoplasm of ovary, unspecified"}
+  ],
+  "Skin": [
+    {"code": "C43.9", "description": "Malignant melanoma of skin, unspecified"},
+    {"code": "C44.3", "description": "Other malignant neoplasm of skin of face"},
+    {"code": "C44.7", "description": "Other malignant neoplasm of skin of lower limb"}
+  ],
+  "Urology": [
+    {"code": "C64", "description": "Malignant neoplasm of kidney, except renal pelvis"},
+    {"code": "C67.9", "description": "Malignant neoplasm of bladder, unspecified"},
+    {"code": "C62.9", "description": "Malignant neoplasm of testis, unspecified"}
+  ],
+  "Brain/CNS": [
+    {"code": "C71.1", "description": "Malignant neoplasm of frontal lobe"},
+    {"code": "C71.9", "description": "Malignant neoplasm of brain, unspecified"},
+    {"code": "C72.9", "description": "Malignant neoplasm of central nervous system, unspecified"}
+  ],
+  "Sarcoma": [
+    {"code": "C40.2", "description": "Malignant neoplasm of long bones of lower limb"},
+    {"code": "C41.9", "description": "Malignant neoplasm of bone and articular cartilage, unspecified"},
+    {"code": "C49.9", "description": "Malignant neoplasm of connective and soft tissue, unspecified"}
+  ]
+}

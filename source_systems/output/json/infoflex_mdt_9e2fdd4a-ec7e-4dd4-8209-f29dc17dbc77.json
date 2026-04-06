@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "9e2fdd4a-ec7e-4dd4-8209-f29dc17dbc77",
+  "meeting_timestamp": "2024-03-25T08:15:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Prostate",
+  "bookings": [
+    {
+      "pathway_id": "c0702cd2-3271-4e02-bcdd-d7d1939c3693",
+      "patient_nhs_number": "5451680876",
+      "patient_name": "Ellis, Elsie"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

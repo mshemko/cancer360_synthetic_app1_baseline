@@ -1,0 +1,25 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "62f56d35-cf0e-47ce-bbc5-f3a28f72ee06",
+  "meeting_timestamp": "2024-09-09T13:00:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Upper GI",
+  "bookings": [
+    {
+      "pathway_id": "ef92a46c-114e-43c8-87ce-e6d9acdd7902",
+      "patient_nhs_number": "6036690967",
+      "patient_name": "Turner, Lucy"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "899020ed-4b27-4058-99b1-f41cf48523e1",
+      "pathway_id": "ef92a46c-114e-43c8-87ce-e6d9acdd7902",
+      "note_type": "histology",
+      "note_text": "Pathology discussed at MDT. Microscopy supports the working diagnosis and sample adequacy was considered satisfactory. Clinical team to use result for decision to treat.",
+      "last_updated": "2024-09-10T13:30:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

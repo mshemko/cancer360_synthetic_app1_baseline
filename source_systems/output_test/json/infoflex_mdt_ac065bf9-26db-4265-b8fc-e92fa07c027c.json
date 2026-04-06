@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "ac065bf9-26db-4265-b8fc-e92fa07c027c",
+  "meeting_timestamp": "2024-01-10T08:30:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Upper GI",
+  "bookings": [
+    {
+      "pathway_id": "9f112934-bc8a-4baf-87d0-53deec19dc27",
+      "patient_nhs_number": "9190586514",
+      "patient_name": "Spencer, Lucy"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

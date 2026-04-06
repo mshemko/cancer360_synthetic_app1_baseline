@@ -1,0 +1,17 @@
+[
+  {
+    "hospital_site_id": "NNUH",
+    "hospital_site": "Norfolk and Norwich University Hospital",
+    "ods_code": "RTH01"
+  },
+  {
+    "hospital_site_id": "JPH",
+    "hospital_site": "James Paget Hospital",
+    "ods_code": "RPC01"
+  },
+  {
+    "hospital_site_id": "QEH",
+    "hospital_site": "Queen Elizabeth Hospital King's Lynn",
+    "ods_code": "RCX01"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "90b68c7a-9b1f-41bd-afad-624cfc442212",
+  "meeting_timestamp": "2025-06-05T16:45:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Head & Neck",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

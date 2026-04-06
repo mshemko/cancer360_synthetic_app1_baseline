@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "d2f52fb4-e6b4-441b-ada4-0b615c5565bc",
+  "meeting_timestamp": "2025-10-24T08:45:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Lung",
+  "bookings": [
+    {
+      "pathway_id": "b0f6cebe-a22c-4769-939a-f10382206392",
+      "patient_nhs_number": "4303911712",
+      "patient_name": "Hughes, Emilia"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

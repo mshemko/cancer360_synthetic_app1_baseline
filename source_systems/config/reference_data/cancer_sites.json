@@ -1,0 +1,62 @@
+[
+  {
+    "cancer_site_id": "BREAST",
+    "cancer_site": "Breast",
+    "cancer_subsites": ["Breast"]
+  },
+  {
+    "cancer_site_id": "LUNG",
+    "cancer_site": "Lung",
+    "cancer_subsites": ["Lung"]
+  },
+  {
+    "cancer_site_id": "COLORECTAL",
+    "cancer_site": "Colorectal",
+    "cancer_subsites": ["Colon", "Rectum", "Colorectal NOS"]
+  },
+  {
+    "cancer_site_id": "PROSTATE",
+    "cancer_site": "Prostate",
+    "cancer_subsites": ["Prostate"]
+  },
+  {
+    "cancer_site_id": "HEAD_NECK",
+    "cancer_site": "Head & Neck",
+    "cancer_subsites": ["Larynx", "Oral Cavity", "Oropharynx", "Thyroid", "Salivary Gland"]
+  },
+  {
+    "cancer_site_id": "UPPER_GI",
+    "cancer_site": "Upper GI",
+    "cancer_subsites": ["Oesophagus", "Stomach", "Hepatobiliary", "Pancreas"]
+  },
+  {
+    "cancer_site_id": "HAEMATOLOGY",
+    "cancer_site": "Haematology",
+    "cancer_subsites": ["Lymphoma", "Leukaemia", "Myeloma"]
+  },
+  {
+    "cancer_site_id": "GYNAECOLOGY",
+    "cancer_site": "Gynaecology",
+    "cancer_subsites": ["Ovary", "Cervix", "Endometrial", "Vulva"]
+  },
+  {
+    "cancer_site_id": "SKIN",
+    "cancer_site": "Skin",
+    "cancer_subsites": ["Melanoma", "Non-Melanoma"]
+  },
+  {
+    "cancer_site_id": "UROLOGY",
+    "cancer_site": "Urology",
+    "cancer_subsites": ["Bladder", "Renal", "Testicular"]
+  },
+  {
+    "cancer_site_id": "BRAIN_CNS",
+    "cancer_site": "Brain/CNS",
+    "cancer_subsites": ["Brain", "CNS"]
+  },
+  {
+    "cancer_site_id": "SARCOMA",
+    "cancer_site": "Sarcoma",
+    "cancer_subsites": ["Bone Sarcoma", "Soft Tissue Sarcoma"]
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "cbee184c-4e3f-4860-9ff6-b4d74ab56c90",
+  "meeting_timestamp": "2024-10-20T13:00:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Urology",
+  "bookings": [
+    {
+      "pathway_id": "75317a88-2262-4f7f-8bec-bbec536af533",
+      "patient_nhs_number": "8692617962",
+      "patient_name": "Richards, Chloe"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.375969+01:00"
+}

@@ -1,0 +1,44 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "8351a9bc-512e-4276-b529-daaccd5e6fb5",
+  "meeting_timestamp": "2024-06-20T16:30:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Upper GI",
+  "bookings": [
+    {
+      "pathway_id": "ef92a46c-114e-43c8-87ce-e6d9acdd7902",
+      "patient_nhs_number": "6036690967",
+      "patient_name": "Turner, Lucy"
+    },
+    {
+      "pathway_id": "9f112934-bc8a-4baf-87d0-53deec19dc27",
+      "patient_nhs_number": "9190586514",
+      "patient_name": "Spencer, Lucy"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "5d8adc17-df82-4f82-8b91-a404c2435566",
+      "pathway_id": "ef92a46c-114e-43c8-87ce-e6d9acdd7902",
+      "note_type": "outcome",
+      "note_text": "MDT outcome recorded. Case accepted for onward management at Queen Elizabeth Hospital King's Lynn. Recommendation is to proceed to specialist clinic review and implement the agreed pathway.",
+      "last_updated": "2024-06-22T08:15:00+01:00"
+    },
+    {
+      "note_id": "de3393ff-91c0-4a67-ac90-318000952f3e",
+      "pathway_id": "9f112934-bc8a-4baf-87d0-53deec19dc27",
+      "note_type": "radiology",
+      "note_text": "Patient discussed at Upper GI MDT. Imaging reviewed and appearances remain suspicious for malignancy. Recommend correlation with histology and proceed with next staging step.",
+      "last_updated": "2024-06-21T08:30:00+01:00"
+    },
+    {
+      "note_id": "2103c678-f0f0-4ab9-95d3-be01430a883e",
+      "pathway_id": "9f112934-bc8a-4baf-87d0-53deec19dc27",
+      "note_type": "clinical_opinion",
+      "note_text": "Consultant opinion at MDT favours treatment escalation given current disease burden. Surgical and oncological options were both reviewed with a preference for multidisciplinary follow-up.",
+      "last_updated": "2024-06-21T11:00:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

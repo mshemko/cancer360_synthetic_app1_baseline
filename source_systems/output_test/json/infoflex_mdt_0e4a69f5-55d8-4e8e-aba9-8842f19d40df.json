@@ -1,0 +1,37 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "0e4a69f5-55d8-4e8e-aba9-8842f19d40df",
+  "meeting_timestamp": "2025-07-03T16:30:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Colorectal",
+  "bookings": [
+    {
+      "pathway_id": "ef5cfd75-a857-4c7c-9d78-547735a5a861",
+      "patient_nhs_number": "9808412416",
+      "patient_name": "Wright, Millie"
+    },
+    {
+      "pathway_id": "31d2e8df-e585-4cee-bd08-ff49ec11e387",
+      "patient_nhs_number": "5220472771",
+      "patient_name": "Phillips, Harper"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "2916117d-3374-4ef7-84af-c5741d81bd9d",
+      "pathway_id": "ef5cfd75-a857-4c7c-9d78-547735a5a861",
+      "note_type": "outcome",
+      "note_text": "Formal MDT decision documented. Team consensus is for curative intent where feasible, with appropriate referral and follow-up actions allocated.",
+      "last_updated": "2025-07-06T17:15:00+01:00"
+    },
+    {
+      "note_id": "10f8d1db-cada-4492-96a7-3dda60163cdc",
+      "pathway_id": "31d2e8df-e585-4cee-bd08-ff49ec11e387",
+      "note_type": "radiology",
+      "note_text": "Radiology findings presented at MDT. Cross-sectional imaging demonstrates a focal lesion without definite distant disease. Consensus is to progress to definitive treatment planning.",
+      "last_updated": "2025-07-04T12:15:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

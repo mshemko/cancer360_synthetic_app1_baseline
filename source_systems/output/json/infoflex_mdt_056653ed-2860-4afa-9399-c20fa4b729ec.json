@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "056653ed-2860-4afa-9399-c20fa4b729ec",
+  "meeting_timestamp": "2025-10-21T08:15:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Brain/CNS",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.684973+01:00"
+}

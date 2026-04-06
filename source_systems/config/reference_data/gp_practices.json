@@ -1,0 +1,22 @@
+[
+  {"name": "Aylsham Medical Practice", "address_line_1": "St Michael's Avenue", "town": "Aylsham", "postcode": "NR11 6YA"},
+  {"name": "Blofield Surgery", "address_line_1": "Yarmouth Road", "town": "Blofield", "postcode": "NR13 4LE"},
+  {"name": "Castle Partnership", "address_line_1": "100 Castle Meadow", "town": "Norwich", "postcode": "NR1 3DD"},
+  {"name": "Cromer Group Practice", "address_line_1": "Mill Road", "town": "Cromer", "postcode": "NR27 0BG"},
+  {"name": "Diss Family Practice", "address_line_1": "Stanley Road", "town": "Diss", "postcode": "IP22 4DH"},
+  {"name": "Holt Medical Practice", "address_line_1": "Kerridge Way", "town": "Holt", "postcode": "NR25 6DN"},
+  {"name": "Humbleyard Practice", "address_line_1": "The Common", "town": "Mulbarton", "postcode": "NR14 8JG"},
+  {"name": "Lakenham Surgery", "address_line_1": "Sandy Lane", "town": "Norwich", "postcode": "NR1 2RN"},
+  {"name": "Mundesley Medical Centre", "address_line_1": "Paston Road", "town": "Mundesley", "postcode": "NR11 8BN"},
+  {"name": "North Walsham and Dilham Practice", "address_line_1": "Yarmouth Road", "town": "North Walsham", "postcode": "NR28 9AP"},
+  {"name": "Oak Street Medical Practice", "address_line_1": "Oak Street", "town": "Norwich", "postcode": "NR3 3DL"},
+  {"name": "Orchard Surgery", "address_line_1": "Commercial Road", "town": "Dereham", "postcode": "NR19 1AE"},
+  {"name": "Paston Surgery", "address_line_1": "North Walsham Road", "town": "Mundesley", "postcode": "NR11 8AR"},
+  {"name": "Roundwell Medical Centre", "address_line_1": "Dr Torrens Way", "town": "Costessey", "postcode": "NR5 0GB"},
+  {"name": "Staithe Surgery", "address_line_1": "Staithe Road", "town": "Bungay", "postcode": "NR35 1EU"},
+  {"name": "Theatre Street Surgery", "address_line_1": "Theatre Street", "town": "Dereham", "postcode": "NR19 2EN"},
+  {"name": "Trinity and Bowthorpe Medical Practice", "address_line_1": "Bowthorpe Health Centre", "town": "Norwich", "postcode": "NR5 9HA"},
+  {"name": "Watton Medical Practice", "address_line_1": "Shirehall Plain", "town": "Watton", "postcode": "IP25 6ET"},
+  {"name": "Wensum Valley Medical Practice", "address_line_1": "Marlowe Road", "town": "Norwich", "postcode": "NR5 8XE"},
+  {"name": "Wymondham Medical Partnership", "address_line_1": "Bridewell Lane", "town": "Wymondham", "postcode": "NR18 0AF"}
+]

@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "68767613-2bbc-4774-9723-20434756d707",
+  "meeting_timestamp": "2024-11-09T16:30:00+00:00",
+  "mdt_status": "Cancelled",
+  "cancer_site": "Head & Neck",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

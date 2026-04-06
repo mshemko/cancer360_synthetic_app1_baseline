@@ -1,0 +1,11 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "0bffea3f-87a5-4990-8b13-55003e88f8d1",
+  "meeting_timestamp": "2025-05-27T09:30:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Breast",
+  "bookings": [],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.682972+01:00"
+}

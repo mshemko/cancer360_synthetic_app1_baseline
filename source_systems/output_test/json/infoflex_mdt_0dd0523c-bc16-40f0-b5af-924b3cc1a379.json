@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "0dd0523c-bc16-40f0-b5af-924b3cc1a379",
+  "meeting_timestamp": "2025-08-08T09:00:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Urology",
+  "bookings": [
+    {
+      "pathway_id": "f37a7d09-8d01-4c9e-bd1f-970d5b17e810",
+      "patient_nhs_number": "9856984785",
+      "patient_name": "Stewart, Elijah"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.375969+01:00"
+}

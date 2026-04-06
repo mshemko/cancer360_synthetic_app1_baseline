@@ -1,0 +1,25 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "4fda551b-7f9d-4992-b144-72777cd3eb9b",
+  "meeting_timestamp": "2024-07-01T08:00:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Lung",
+  "bookings": [
+    {
+      "pathway_id": "c3d4f076-b9d9-4bfe-b12b-da85cd7ed12c",
+      "patient_nhs_number": "7672423886",
+      "patient_name": "Moore, Zachary"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "3699728b-347a-4d43-b8ad-4ae22e98091f",
+      "pathway_id": "c3d4f076-b9d9-4bfe-b12b-da85cd7ed12c",
+      "note_type": "histology",
+      "note_text": "Histology reviewed at MDT. Tissue confirms malignant pathology in keeping with the suspected primary site. Receptor and grading information noted for treatment planning.",
+      "last_updated": "2024-07-04T16:30:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.374973+01:00"
+}

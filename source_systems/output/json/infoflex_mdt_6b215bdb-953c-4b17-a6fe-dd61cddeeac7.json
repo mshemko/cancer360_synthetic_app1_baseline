@@ -1,0 +1,30 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "6b215bdb-953c-4b17-a6fe-dd61cddeeac7",
+  "meeting_timestamp": "2025-08-08T16:45:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Breast",
+  "bookings": [
+    {
+      "pathway_id": "68e83b35-3054-4412-9493-2e7546f6972a",
+      "patient_nhs_number": "1647525535",
+      "patient_name": "Simpson, Max"
+    },
+    {
+      "pathway_id": "35eecb02-9008-4d30-b3c3-d3bd21eda732",
+      "patient_nhs_number": "6025634211",
+      "patient_name": "Wilson, Harry"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "ab0f6fda-72c2-40f0-b79a-afa4b9c146f8",
+      "pathway_id": "35eecb02-9008-4d30-b3c3-d3bd21eda732",
+      "note_type": "outcome",
+      "note_text": "Formal MDT decision documented. Team consensus is for curative intent where feasible, with appropriate referral and follow-up actions allocated.",
+      "last_updated": "2025-08-11T17:15:00+01:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.682972+01:00"
+}

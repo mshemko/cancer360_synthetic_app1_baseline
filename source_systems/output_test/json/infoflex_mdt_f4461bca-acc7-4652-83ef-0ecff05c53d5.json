@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "f4461bca-acc7-4652-83ef-0ecff05c53d5",
+  "meeting_timestamp": "2024-09-04T09:00:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Gynaecology",
+  "bookings": [
+    {
+      "pathway_id": "8abb5d34-0a4f-4117-bcae-d8d542d70efc",
+      "patient_nhs_number": "8932460957",
+      "patient_name": "Stone, Emily"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:35.375969+01:00"
+}

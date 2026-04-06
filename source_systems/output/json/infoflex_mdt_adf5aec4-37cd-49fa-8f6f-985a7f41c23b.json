@@ -1,0 +1,37 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "adf5aec4-37cd-49fa-8f6f-985a7f41c23b",
+  "meeting_timestamp": "2024-01-12T12:00:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Prostate",
+  "bookings": [
+    {
+      "pathway_id": "c0702cd2-3271-4e02-bcdd-d7d1939c3693",
+      "patient_nhs_number": "5451680876",
+      "patient_name": "Ellis, Elsie"
+    },
+    {
+      "pathway_id": "31fcb1d9-d1a8-416e-a7d5-535222071c65",
+      "patient_nhs_number": "1111615284",
+      "patient_name": "George, Theodore"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "c9c7fd55-77ca-4270-8e40-d913e7538503",
+      "pathway_id": "31fcb1d9-d1a8-416e-a7d5-535222071c65",
+      "note_type": "histology",
+      "note_text": "Pathology discussed at MDT. Microscopy supports the working diagnosis and sample adequacy was considered satisfactory. Clinical team to use result for decision to treat.",
+      "last_updated": "2024-01-15T16:30:00+00:00"
+    },
+    {
+      "note_id": "43bc3602-f2c5-477a-8a30-218421a5025d",
+      "pathway_id": "31fcb1d9-d1a8-416e-a7d5-535222071c65",
+      "note_type": "general",
+      "note_text": "Patient discussed in routine MDT forum. Notes reflect the agreed next step and confirm that outstanding items will be tracked before the next review.",
+      "last_updated": "2024-01-14T11:30:00+00:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

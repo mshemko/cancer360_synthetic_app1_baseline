@@ -1,0 +1,11 @@
+[
+  {"endoscopy_type": "Colonoscopy"},
+  {"endoscopy_type": "Gastroscopy"},
+  {"endoscopy_type": "Flexible cystoscopy"},
+  {"endoscopy_type": "Bronchoscopy"},
+  {"endoscopy_type": "ERCP"},
+  {"endoscopy_type": "EUS"},
+  {"endoscopy_type": "Sigmoidoscopy"},
+  {"endoscopy_type": "Diagnostic fibreoptic endoscopic procedure"},
+  {"endoscopy_type": "Endoscopic resection of lesion"}
+]

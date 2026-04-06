@@ -1,0 +1,35 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "6dd5a0b8-b912-4a1e-8d08-aa14d11079ef",
+  "meeting_timestamp": "2025-01-02T16:45:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Colorectal",
+  "bookings": [
+    {
+      "pathway_id": "ec634e95-ecf5-4946-ab37-4de78bbddaad",
+      "patient_nhs_number": "9808412416",
+      "patient_name": "Wright, Millie"
+    },
+    {
+      "pathway_id": "3d6ffb6a-89a9-4dea-b2d9-5137a2d950d6",
+      "patient_nhs_number": "4013990490",
+      "patient_name": "Evans, Sophia"
+    },
+    {
+      "pathway_id": "b0dc830f-4ce4-412d-8f83-5021a76f2d0b",
+      "patient_nhs_number": "5220472771",
+      "patient_name": "Phillips, Harper"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "5bfe9c58-65ae-4710-9217-9c77e3b41454",
+      "pathway_id": "ec634e95-ecf5-4946-ab37-4de78bbddaad",
+      "note_type": "general",
+      "note_text": "Patient discussed in routine MDT forum. Notes reflect the agreed next step and confirm that outstanding items will be tracked before the next review.",
+      "last_updated": "2025-01-04T11:15:00+00:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:36.683968+01:00"
+}

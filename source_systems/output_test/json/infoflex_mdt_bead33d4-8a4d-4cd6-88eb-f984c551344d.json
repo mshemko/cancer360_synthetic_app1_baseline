@@ -1,0 +1,25 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "bead33d4-8a4d-4cd6-88eb-f984c551344d",
+  "meeting_timestamp": "2024-03-15T13:45:00+00:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Breast",
+  "bookings": [
+    {
+      "pathway_id": "378c40ac-e55d-429f-b6f6-c80648a75a0e",
+      "patient_nhs_number": "0262174596",
+      "patient_name": "Bell, Adam"
+    }
+  ],
+  "notes": [
+    {
+      "note_id": "120da5fa-5ee5-4ae1-ac75-b044a220c200",
+      "pathway_id": "378c40ac-e55d-429f-b6f6-c80648a75a0e",
+      "note_type": "outcome",
+      "note_text": "MDT outcome recorded. Case accepted for onward management at Norfolk and Norwich University Hospital. Recommendation is to proceed to specialist clinic review and implement the agreed pathway.",
+      "last_updated": "2024-03-17T14:00:00+00:00"
+    }
+  ],
+  "last_refreshed": "2026-04-06T22:21:35.373976+01:00"
+}

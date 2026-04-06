@@ -1,0 +1,17 @@
+{
+  "source_system": "Infoflex",
+  "message_type": "MDT_MEETING",
+  "meeting_id": "0f7cecf1-c2e5-46d4-844a-768c9091b33d",
+  "meeting_timestamp": "2024-10-19T08:15:00+01:00",
+  "mdt_status": "Completed",
+  "cancer_site": "Skin",
+  "bookings": [
+    {
+      "pathway_id": "50b7a38b-7497-48b0-84d6-348441e975cc",
+      "patient_nhs_number": "0532931831",
+      "patient_name": "Harris, Emily"
+    }
+  ],
+  "notes": [],
+  "last_refreshed": "2026-04-06T22:21:36.684973+01:00"
+}
