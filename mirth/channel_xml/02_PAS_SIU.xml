@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mirth-channel-skeleton name="PAS_SIU" version="1.0">
+  <summary>Receives Cerner SIU outpatient events and upserts appointment records.</summary>
+  <channel-group>cancer360-hl7</channel-group>
+  <source-connector type="llp-listener">
+    <port>2575</port>
+    <data-type>HL7V2</data-type>
+    <ack-mode>auto</ack-mode>
+    <filters>
+      <sending-application>CERNER</sending-application>
+      <message-type>SIU^S12</message-type>
+      <message-type>SIU^S14</message-type>
+    </filters>
+  </source-connector>
+  <transformer>
+    <script-file>mirth/channels/transformers/PAS_SIU.js</script-file>
+    <required-code-template>UuidHelpers</required-code-template>
+    <required-code-template>DateHelpers</required-code-template>
+    <required-code-template>DbHelpers</required-code-template>
+    <required-code-template>SourceRouting</required-code-template>
+  </transformer>
+  <destinations>
+    <destination order="1" type="javascript-transformer">Resolve patient from NHS number and normalize schedule metadata.</destination>
+    <destination order="2" type="database-writer" sql-key="sql.appointment.upsert">Upsert appointment row.</destination>
+    <destination order="3" type="database-writer">Write integration audit row.</destination>
+    <destination order="4" type="database-writer">Write dead-letter row on exception.</destination>
+  </destinations>
+</mirth-channel-skeleton>

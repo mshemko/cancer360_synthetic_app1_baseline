@@ -1,0 +1,579 @@
+:root {
+  --bg: #f4efe6;
+  --ink: #1c2b2d;
+  --muted: #5f6d71;
+  --line: rgba(28, 43, 45, 0.12);
+  --panel: rgba(255, 252, 247, 0.88);
+  --panel-strong: rgba(255, 255, 255, 0.96);
+  --accent: #0c7b77;
+  --accent-soft: rgba(12, 123, 119, 0.14);
+  --warning: #dd7a24;
+  --warning-soft: rgba(221, 122, 36, 0.14);
+  --danger: #b94942;
+  --danger-soft: rgba(185, 73, 66, 0.14);
+  --shadow: 0 24px 60px rgba(56, 63, 73, 0.12);
+  --radius: 24px;
+  --font-sans: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
+  --font-mono: "Consolas", "Cascadia Code", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top right, rgba(12, 123, 119, 0.16), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(221, 122, 36, 0.12), transparent 24%),
+    linear-gradient(180deg, #f8f3eb 0%, #efe8dd 100%);
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  width: min(1500px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(244, 250, 249, 0.84)),
+    linear-gradient(135deg, rgba(12, 123, 119, 0.08), rgba(221, 122, 36, 0.08));
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.hero-text {
+  max-width: 58rem;
+  margin: 18px 0 0;
+  font-size: 1.03rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.hero-panel {
+  display: grid;
+  gap: 14px;
+  align-content: end;
+}
+
+.hero-chip {
+  padding: 18px;
+  border: 1px solid rgba(12, 123, 119, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.hero-chip-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.hero-chip-value {
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.panel {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.panel-header {
+  margin-bottom: 18px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.panel-header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.panel-form,
+.panel-pipeline,
+.panel-runs,
+.panel-patients,
+.panel-data,
+.panel-api {
+  grid-column: span 6;
+}
+
+.panel-stream,
+.panel-patient-view {
+  grid-column: 1 / -1;
+}
+
+.run-form {
+  display: grid;
+  gap: 14px;
+}
+
+.run-form label,
+.source-picker {
+  display: grid;
+  gap: 8px;
+}
+
+.run-form span,
+.source-picker-header span {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel-strong);
+  color: var(--ink);
+  font: inherit;
+}
+
+.source-picker-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.source-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.source-option {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primary-button,
+.ghost-button,
+.patient-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.primary-button {
+  color: white;
+  background: linear-gradient(135deg, #0c7b77, #125354);
+  box-shadow: 0 16px 32px rgba(12, 123, 119, 0.18);
+}
+
+.ghost-button,
+.patient-button {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--line);
+}
+
+.primary-button:hover,
+.ghost-button:hover,
+.patient-button:hover {
+  transform: translateY(-1px);
+}
+
+.form-feedback {
+  min-height: 1.3rem;
+  margin: 0;
+  color: var(--muted);
+}
+
+.pipeline-lanes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.lane-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 160px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.lane-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -12px -12px auto;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(12, 123, 119, 0.08);
+}
+
+.lane-label {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lane-value {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.lane-copy {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.runs-list,
+.patients-list,
+.stream-list,
+.checks-list,
+.table-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.run-card,
+.patient-card,
+.stream-item,
+.check-card,
+.table-card {
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.run-card.is-active {
+  border-color: rgba(12, 123, 119, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(12, 123, 119, 0.16);
+}
+
+.run-topline,
+.patient-topline,
+.check-topline {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.run-title,
+.patient-title,
+.check-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.status-badge.success,
+.stream-item.success .stream-pill {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.status-badge.running {
+  color: #75510d;
+  background: rgba(255, 214, 102, 0.25);
+}
+
+.status-badge.error,
+.stream-item.error .stream-pill {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.status-badge.queued {
+  color: #5f6d71;
+  background: rgba(95, 109, 113, 0.12);
+}
+
+.run-meta,
+.patient-meta,
+.stream-meta,
+.check-copy,
+.table-copy {
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.patient-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.stream-item {
+  display: grid;
+  gap: 10px;
+}
+
+.stream-item.source {
+  border-left: 6px solid #2d8f8a;
+}
+
+.stream-item.integration {
+  border-left: 6px solid #dd7a24;
+}
+
+.stream-item.database {
+  border-left: 6px solid #2461c5;
+}
+
+.stream-item.api {
+  border-left: 6px solid #6b56d8;
+}
+
+.stream-item.app {
+  border-left: 6px solid #39524d;
+}
+
+.stream-head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.stream-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.stream-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(95, 109, 113, 0.12);
+  color: var(--muted);
+}
+
+.stream-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stream-tag {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(12, 123, 119, 0.1);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+.table-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.table-card h3 {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.table-delta {
+  margin-top: 8px;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.table-delta.positive {
+  color: var(--accent);
+}
+
+.table-delta.neutral {
+  color: var(--muted);
+}
+
+.patient-view {
+  min-height: 220px;
+}
+
+.empty-state {
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.44);
+}
+
+.patient-view-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 16px;
+}
+
+.patient-pane {
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.patient-pane h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.patient-pane dl {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 8px 10px;
+  margin: 0;
+}
+
+.patient-pane dt {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.patient-pane dd {
+  margin: 0;
+}
+
+.mini-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mini-item {
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(244, 248, 247, 0.9);
+}
+
+.mini-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 1120px) {
+  .hero,
+  .patient-view-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-form,
+  .panel-pipeline,
+  .panel-runs,
+  .panel-patients,
+  .panel-data,
+  .panel-api {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100vw - 16px, 100%);
+    padding-top: 12px;
+  }
+
+  .hero,
+  .panel {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .grid {
+    gap: 14px;
+  }
+
+  .pipeline-lanes,
+  .source-options,
+  .table-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mirth-channel-skeleton name="ICE_ORU" version="1.0">
+  <summary>Receives ICE or WinPath ORU results and writes pathology, result values, and structured histopathology.</summary>
+  <channel-group>cancer360-hl7</channel-group>
+  <source-connector type="llp-listener">
+    <port>2575</port>
+    <data-type>HL7V2</data-type>
+    <ack-mode>auto</ack-mode>
+    <filters>
+      <sending-application>WINPATH</sending-application>
+      <sending-application>ICE</sending-application>
+      <message-type>ORU^R01</message-type>
+    </filters>
+  </source-connector>
+  <transformer>
+    <script-file>mirth/channels/transformers/ICE_ORU.js</script-file>
+    <required-code-template>UuidHelpers</required-code-template>
+    <required-code-template>DateHelpers</required-code-template>
+    <required-code-template>DbHelpers</required-code-template>
+    <required-code-template>SourceRouting</required-code-template>
+  </transformer>
+  <destinations>
+    <destination order="1" type="javascript-transformer">Parse PID, OBR, and OBX segments and resolve patient.</destination>
+    <destination order="2" type="database-writer" sql-key="sql.pathology_result.upsert">Upsert pathology header row.</destination>
+    <destination order="3" type="database-writer" sql-key="sql.pathology_result_value.upsert">Upsert numeric and coded OBX values.</destination>
+    <destination order="4" type="database-writer" sql-key="sql.histopath_structured.upsert">Upsert derived histopathology structure when applicable.</destination>
+    <destination order="5" type="database-writer">Write integration audit row.</destination>
+    <destination order="6" type="database-writer">Write dead-letter row on exception.</destination>
+  </destinations>
+</mirth-channel-skeleton>

@@ -1,0 +1,114 @@
+{
+  "version": "1.0",
+  "description": "Cancer 360 Mirth channel inventory aligned to the live PostgreSQL CDM",
+  "globalMapKeys": [
+    "db.url",
+    "db.username",
+    "db.password"
+  ],
+  "channels": [
+    {
+      "name": "PAS_ADT",
+      "sourceType": "LLP Listener",
+      "port": 2575,
+      "filter": {
+        "sendingApplication": ["CERNER"],
+        "messageTypes": ["ADT^A01", "ADT^A03", "ADT^A04"]
+      },
+      "transformerScript": "transformers/PAS_ADT.js",
+      "targets": ["patient", "episode", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "PAS_SIU",
+      "sourceType": "LLP Listener",
+      "port": 2575,
+      "filter": {
+        "sendingApplication": ["CERNER"],
+        "messageTypes": ["SIU^S12", "SIU^S14"]
+      },
+      "transformerScript": "transformers/PAS_SIU.js",
+      "targets": ["appointment", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "ICE_ORU",
+      "sourceType": "LLP Listener",
+      "port": 2575,
+      "filter": {
+        "sendingApplication": ["WINPATH", "ICE"],
+        "messageTypes": ["ORU^R01"]
+      },
+      "transformerScript": "transformers/ICE_ORU.js",
+      "targets": ["pathology_result", "pathology_result_value", "histopath_structured", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "RIS_ORU",
+      "sourceType": "LLP Listener",
+      "port": 2575,
+      "filter": {
+        "sendingApplication": ["CRIS", "RIS"],
+        "messageTypes": ["ORU^R01"]
+      },
+      "transformerScript": "transformers/RIS_ORU.js",
+      "targets": ["radiology_result", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "ARIA_SIU",
+      "sourceType": "LLP Listener",
+      "port": 2575,
+      "filter": {
+        "sendingApplication": ["ARIA"],
+        "messageTypes": ["SIU^S12", "SIU^S14"]
+      },
+      "transformerScript": "transformers/ARIA_SIU.js",
+      "targets": ["appointment", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "SOMERSET_PATHWAYS",
+      "sourceType": "File Reader",
+      "directory": "C:\\cancer360\\incoming\\somerset",
+      "pattern": "somerset_pathways_*.csv",
+      "transformerScript": "transformers/SOMERSET_PATHWAYS.js",
+      "targets": ["patient", "referral", "diagnosis", "staging", "cancer_pathway", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "SOMERSET_TRACKING",
+      "sourceType": "File Reader",
+      "directory": "C:\\cancer360\\incoming\\somerset",
+      "pattern": "somerset_tracking_*.csv",
+      "transformerScript": "transformers/SOMERSET_TRACKING.js",
+      "targets": ["cancer_action", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "SOMERSET_MDT",
+      "sourceType": "File Reader",
+      "directory": "C:\\cancer360\\incoming\\somerset",
+      "pattern": "somerset_mdt_*.csv",
+      "transformerScript": "transformers/SOMERSET_MDT.js",
+      "targets": ["mdt_discussion", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "SOMERSET_IPT",
+      "sourceType": "File Reader",
+      "directory": "C:\\cancer360\\incoming\\somerset",
+      "pattern": "somerset_ipt_*.csv",
+      "transformerScript": "transformers/SOMERSET_IPT.js",
+      "targets": ["cancer_action", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "ARIA_TREATMENT",
+      "sourceType": "File Reader",
+      "directory": "C:\\cancer360\\incoming\\aria",
+      "pattern": "aria_treatment_*.csv",
+      "transformerScript": "transformers/ARIA_TREATMENT.js",
+      "targets": ["sact_course", "sact_cycle", "sact_drug", "radiotherapy_course", "radiotherapy_fraction", "integration_audit_log", "dead_letter_queue"]
+    },
+    {
+      "name": "ENDOSCOPY",
+      "sourceType": "File Reader",
+      "directory": "C:\\cancer360\\incoming\\endoscopy",
+      "pattern": "endoscopy_*.csv",
+      "transformerScript": "transformers/ENDOSCOPY.js",
+      "targets": ["appointment", "cancer_action", "integration_audit_log", "dead_letter_queue"]
+    }
+  ]
+}

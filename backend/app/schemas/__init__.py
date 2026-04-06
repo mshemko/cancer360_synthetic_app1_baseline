@@ -263,18 +263,22 @@ class ActionCreate(BaseModel):
 
 
 class ActionUpdate(BaseModel):
+    operation: Optional[str] = None
     status: Optional[str] = None
     priority: Optional[str] = None
     due_date: Optional[date] = None
     assigned_team: Optional[str] = None
     assigned_user: Optional[str] = None
     notes: Optional[str] = None
+    comment_title: Optional[str] = None
+    comment_text: Optional[str] = None
 
 
 class ActionSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     action_id: UUID
     patient_id: UUID
+    pathway_id: Optional[UUID] = None
     action_type: str
     action_description: Optional[str] = None
     priority: str
@@ -286,7 +290,9 @@ class ActionSchema(BaseModel):
     completed_by: Optional[str] = None
     completed_date: Optional[datetime] = None
     notes: Optional[str] = None
+    source_system: Optional[str] = None
     created_at: datetime
+    updated_at: Optional[datetime] = None
 
 
 # ─── Cancer Pathway / PTL ───────────────────────────────────────────────────
@@ -297,10 +303,15 @@ class PTLRow(BaseModel):
     patient_id: UUID
     nhs_number: str
     patient_name: str
+    hospital_number: Optional[str] = None
     date_of_birth: date
     sex: str
+    age: Optional[int] = None
     cancer_type_code: Optional[str] = None
     cancer_type_desc: Optional[str] = None
+    cancer_site: Optional[str] = None
+    cancer_sub_site: Optional[str] = None
+    hospital_site: Optional[str] = None
     stage_group: Optional[str] = None
     grade: Optional[str] = None
     date_referral_received: Optional[date] = None
@@ -318,6 +329,22 @@ class PTLRow(BaseModel):
     assigned_team: Optional[str] = None
     breach_risk: str
     treatment_modality: Optional[str] = None
+    open_action_count: int = 0
+    latest_action: Optional[str] = None
+    recent_action_update: bool = False
+    latest_tracking_comment: Optional[str] = None
+    breach_date_28: Optional[date] = None
+    breach_date_31: Optional[date] = None
+    breach_date_62: Optional[date] = None
+    first_outpatient_attended_date: Optional[date] = None
+    next_outpatient_attended_date: Optional[date] = None
+    latest_histology_attended_date: Optional[date] = None
+    latest_radiology_attended_date: Optional[date] = None
+    latest_inpatient_encounter_tci_date: Optional[date] = None
+    latest_mdt_status: Optional[str] = None
+    latest_ipt_date: Optional[date] = None
+    tags: List[str] = Field(default_factory=list)
+    watchlist_reason: Optional[str] = None
 
 
 class PTLSummary(BaseModel):
@@ -366,6 +393,239 @@ class Patient360Response(BaseModel):
     rt_courses: List[RTCourseSchema] = []
     mdt_discussions: List[MDTDiscussionSchema] = []
     actions: List[ActionSchema] = []
+    navigation_actions: List[ActionSchema] = []
+
+
+class DrawerSectionCount(BaseModel):
+    key: str
+    label: str
+    count: int
+
+
+class PathwayDrawerDetail(BaseModel):
+    pathway_status: str
+    pathway_type: str
+    days_since_adjusted_pathway_start: Optional[int] = None
+    cancer_site: Optional[str] = None
+    cancer_sub_site: Optional[str] = None
+    hospital_site: Optional[str] = None
+    full_name: str
+    nhs_number: str
+    mrn: Optional[str] = None
+    phone_number: Optional[str] = None
+    date_of_birth: date
+    adjusted_pathway_start_date: Optional[date] = None
+    original_pathway_start_date: Optional[date] = None
+    pathway_closed_date: Optional[date] = None
+    breach_date_28: Optional[date] = None
+    breach_date_31: Optional[date] = None
+    breach_date_62: Optional[date] = None
+    watchlist_reason: Optional[str] = None
+    tags: List[str] = Field(default_factory=list)
+
+
+class PathwayDrawerHistoryItem(BaseModel):
+    timestamp: datetime
+    event_type: str
+    title: str
+    detail: Optional[str] = None
+    actor: Optional[str] = None
+    tone: str = "neutral"
+
+
+class PathwayDrawerAction(BaseModel):
+    action_id: UUID
+    title: str
+    due_date: Optional[date] = None
+    status: str
+    detail: Optional[str] = None
+    owner: Optional[str] = None
+    priority: str
+    source_system: Optional[str] = None
+    history: List[PathwayDrawerHistoryItem] = Field(default_factory=list)
+
+
+class PathwayDrawerAppointment(BaseModel):
+    record_id: str
+    name: str
+    status: Optional[str] = None
+    ordered_date: Optional[date] = None
+    scheduled_date: Optional[date] = None
+    attended_date: Optional[date] = None
+    specialty_name: Optional[str] = None
+    consultant_name: Optional[str] = None
+    source_system: Optional[str] = None
+
+
+class PathwayDrawerProcedure(BaseModel):
+    record_id: str
+    name: str
+    status: Optional[str] = None
+    ordered_date: Optional[date] = None
+    scheduled_date: Optional[date] = None
+    attended_date: Optional[date] = None
+    specialty_name: Optional[str] = None
+    consultant_name: Optional[str] = None
+    ward_name: Optional[str] = None
+    source_system: Optional[str] = None
+
+
+class PathwayDrawerReport(BaseModel):
+    record_id: str
+    name: str
+    status: str
+    priority: Optional[str] = None
+    ordered_date: Optional[date] = None
+    report_date: Optional[date] = None
+    summary: Optional[str] = None
+    report_text: Optional[str] = None
+    author_name: Optional[str] = None
+    clinical_question: Optional[str] = None
+    reference_number: Optional[str] = None
+    hospital_name: Optional[str] = None
+    source_system: Optional[str] = None
+
+
+class PathwayDrawerMdtNote(BaseModel):
+    note_type: str
+    created_at: datetime
+    text: str
+
+
+class PathwayDrawerMdtMeeting(BaseModel):
+    meeting_id: UUID
+    meeting_date: date
+    status: str
+    note_count: int
+    mdt_site: Optional[str] = None
+    source_system: Optional[str] = None
+    notes: List[PathwayDrawerMdtNote] = Field(default_factory=list)
+
+
+class PathwayDrawerTestResult(BaseModel):
+    record_id: str
+    test_name: str
+    test_date: Optional[date] = None
+    value: Optional[str] = None
+    unit: Optional[str] = None
+    value_type: Optional[str] = None
+    abnormal_flag: Optional[str] = None
+
+
+class PathwayDrawerIPT(BaseModel):
+    record_id: str
+    reason_for_ipt: str
+    sent_or_received: str
+    ipt_date: Optional[date] = None
+    ipt_on_day: Optional[int] = None
+    sending_org_name: Optional[str] = None
+    receiving_org_name: Optional[str] = None
+    source_system: Optional[str] = None
+
+
+class PathwayDrawerTrackingComment(BaseModel):
+    record_id: str
+    created_at: datetime
+    created_by: Optional[str] = None
+    title: Optional[str] = None
+    comment_text: str
+    source_system: Optional[str] = None
+
+
+class PathwayDrawerResponse(BaseModel):
+    pathway: PTLRow
+    last_updated: datetime
+    section_counts: List[DrawerSectionCount]
+    details: PathwayDrawerDetail
+    milestones: List[PathwayTimelineEvent] = Field(default_factory=list)
+    actions: List[PathwayDrawerAction] = Field(default_factory=list)
+    outpatient_appointments: List[PathwayDrawerAppointment] = Field(default_factory=list)
+    inpatient_procedures: List[PathwayDrawerProcedure] = Field(default_factory=list)
+    histology: List[PathwayDrawerReport] = Field(default_factory=list)
+    radiology: List[PathwayDrawerReport] = Field(default_factory=list)
+    mdt_notes: List[PathwayDrawerMdtMeeting] = Field(default_factory=list)
+    test_results: List[PathwayDrawerTestResult] = Field(default_factory=list)
+    ipt: List[PathwayDrawerIPT] = Field(default_factory=list)
+    tracking_comments: List[PathwayDrawerTrackingComment] = Field(default_factory=list)
+    patient_360: Patient360Response
+
+
+class ActionWorklistRow(BaseModel):
+    action_id: UUID
+    pathway_id: Optional[UUID] = None
+    patient_id: UUID
+    due_date: Optional[date] = None
+    title: str
+    priority: str
+    action_detail_summary: Optional[str] = None
+    action_status: str
+    action_status_tone: str
+    pathway_day: Optional[int] = None
+    patient_name: str
+    cancer_site: Optional[str] = None
+    hospital_site: Optional[str] = None
+    mrn: Optional[str] = None
+    nhs_number: str
+    owner: Optional[str] = None
+    team_name: Optional[str] = None
+    days_open: int
+    pathway_is_open: bool
+    pathway_status: Optional[str] = None
+    latest_action_comment: Optional[str] = None
+    latest_comment_at: Optional[datetime] = None
+    latest_comment_by: Optional[str] = None
+    breach_date_28: Optional[date] = None
+    breach_date_31: Optional[date] = None
+    breach_date_62: Optional[date] = None
+    first_op_appt_attended_date: Optional[date] = None
+    next_op_appt_attended_date: Optional[date] = None
+    latest_radiology_attended_date: Optional[date] = None
+    latest_histology_attended_date: Optional[date] = None
+    latest_ip_procedure_tci_date: Optional[date] = None
+    watchlist_reason: Optional[str] = None
+    is_watchlist: bool = False
+    last_updated: Optional[datetime] = None
+    last_updated_by: Optional[str] = None
+
+
+class ActionsKpiSummary(BaseModel):
+    my_actions: int
+    team_actions: int
+    awaiting_assignment: int
+    escalated_team_actions: int
+    all_actions: int
+    watchlist_only: int
+
+
+class ActionWorklistResponse(BaseModel):
+    items: List[ActionWorklistRow]
+    summary: ActionsKpiSummary
+
+
+class ActionDetailResponse(BaseModel):
+    action: ActionWorklistRow
+    history: List[PathwayDrawerHistoryItem] = Field(default_factory=list)
+    data_provenance: dict[str, str] = Field(default_factory=dict)
+
+
+class ActionUpdateItem(BaseModel):
+    update_id: str
+    action_id: UUID
+    update_type: str
+    update_tone: str
+    title: str
+    timestamp: datetime
+    actor: Optional[str] = None
+    comment_title: Optional[str] = None
+    comment_text: Optional[str] = None
+    action_detail: ActionDetailResponse
+
+
+class ActionUpdatesResponse(BaseModel):
+    items: List[ActionUpdateItem]
+    total: int
+    page: int
+    per_page: int
 
 
 # ─── Dashboard ──────────────────────────────────────────────────────────────
@@ -382,6 +642,135 @@ class DashboardMetrics(BaseModel):
     by_cancer_type: List[dict]
     by_breach_risk: List[dict]
     by_status: List[dict]
+
+
+class ServiceOverviewTrendingResponse(BaseModel):
+    trending_ptl_size: List[dict]
+    trending_close_day: List[dict]
+    trending_action_volume: List[dict]
+    current_open_pathways_mean_age: int
+    mean_close_day_last_month: int
+    provenance: dict[str, str] = {}
+
+
+class ServiceOverviewTeamResponse(BaseModel):
+    actions_by_type: List[dict]
+    actions_by_team: List[dict]
+    total_open_actions: int
+    provenance: dict[str, str] = {}
+
+
+class ServiceOverviewResponse(BaseModel):
+    filters: dict[str, List[str]]
+    ptl_size: dict[str, int]
+    by_cancer_site: List[dict]
+    trending_ptl_size: List[dict]
+    by_tag: List[dict]
+    by_pathway_type: List[dict]
+    actions_by_type: List[dict]
+    actions_by_team: List[dict]
+    trending_close_day: List[dict]
+    trending_action_volume: List[dict]
+    current_open_pathways_mean_age: int
+    mean_close_day_last_month: int
+    total_open_actions: int
+    provenance: dict[str, str] = {}
+
+
+class IntegrationSourceStatus(BaseModel):
+    source_system: str
+    success_count: int
+    error_count: int
+    last_event_at: Optional[datetime] = None
+
+
+class IntegrationIssue(BaseModel):
+    source_system: Optional[str] = None
+    message_type: Optional[str] = None
+    status: Optional[str] = None
+    error_message: Optional[str] = None
+    created_at: datetime
+
+
+class IntegrationStatusResponse(BaseModel):
+    audit_total: int
+    audit_success: int
+    audit_error: int
+    dlq_pending: int
+    dlq_total: int
+    source_status: List[IntegrationSourceStatus]
+    recent_errors: List[IntegrationIssue]
+
+
+class SimulationStreamEvent(BaseModel):
+    timestamp: datetime
+    layer: str
+    component: str
+    title: str
+    detail: str
+    status: str = "success"
+    source_system: Optional[str] = None
+    message_type: Optional[str] = None
+    file_name: Optional[str] = None
+    payload_preview: Optional[str] = None
+    impact_tables: List[str] = []
+
+
+class SimulationDatabaseDelta(BaseModel):
+    table_name: str
+    before_count: int
+    after_count: int
+    delta: int
+
+
+class SimulationCreatedPatient(BaseModel):
+    nhs_number: str
+    patient_name: str
+    scenario: str
+    source_pathway_id: str
+    pathway_id: UUID
+
+
+class SimulationApiCheck(BaseModel):
+    name: str
+    status: str
+    detail: str
+
+
+class SimulationRunRequest(BaseModel):
+    patient_count: int = Field(default=6, ge=1, le=100)
+    seed: int = 360
+    anchor_date: Optional[date] = None
+    source_systems: List[str] = Field(default_factory=lambda: ["pas", "ice", "ris", "somerset", "aria", "endoscopy"])
+
+
+class SimulationRunSummary(BaseModel):
+    run_id: str
+    status: str
+    started_at: Optional[datetime] = None
+    completed_at: Optional[datetime] = None
+    patient_count: int
+    journeys_generated: int = 0
+    total_events: int = 0
+    processed_events: int = 0
+    failed_events: int = 0
+    source_systems: List[str] = []
+    source_event_counts: dict[str, int] = {}
+
+
+class SimulationRunDetail(SimulationRunSummary):
+    artifacts: dict[str, str] = {}
+    database_deltas: List[SimulationDatabaseDelta] = []
+    created_patients: List[SimulationCreatedPatient] = []
+    api_checks: List[SimulationApiCheck] = []
+    stream: List[SimulationStreamEvent] = []
+
+
+class SimulationCatalogResponse(BaseModel):
+    available_sources: List[str]
+    default_sources: List[str]
+    default_patient_count: int
+    recommended_seed: int
 
 
 # ─── Search ─────────────────────────────────────────────────────────────────

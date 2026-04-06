@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancer 360</title>
+  <link rel="stylesheet" href="/static/cancer360_app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="masthead">
+      <div class="brand-block">
+        <p class="eyebrow">Cancer 360</p>
+        <h1>Service overview, live PTL, patient 360, and integration lineage in one place.</h1>
+        <p class="masthead-copy">
+          This rebuilt app uses the current Cancer 360 backend and shows how source-system data moves through the
+          integration lane into the database, the API, and the clinical interface.
+        </p>
+      </div>
+      <div class="masthead-actions">
+        <a class="masthead-link" href="/studio">Integration Studio</a>
+        <a class="masthead-link" href="/studio/playback">Playback</a>
+        <a class="masthead-link" href="/docs" target="_blank" rel="noreferrer">API Docs</a>
+        <div class="status-chip">
+          <span class="status-label">Demo auth</span>
+          <strong id="auth-status">Connecting</strong>
+        </div>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="nav-rail">
+        <button type="button" class="nav-button is-active" data-target="overview-section">Service Overview</button>
+        <button type="button" class="nav-button" data-target="ptl-section">PTL</button>
+        <button type="button" class="nav-button" data-target="actions-section">Actions</button>
+        <button type="button" class="nav-button" data-target="patient-section">Patient 360</button>
+        <button type="button" class="nav-button" data-target="integration-section">Integration Flow</button>
+        <div class="nav-note">
+          <h2>Flow</h2>
+          <p>Sources -> Mirth or TIE -> PostgreSQL -> API -> Cancer 360 screens.</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="hero-card">
+          <div class="hero-copy">
+            <p class="eyebrow">Operational Command</p>
+            <h2>Follow cancer pathway data from ingestion to clinical use.</h2>
+            <p>
+              The tiles below are backed by the live FastAPI application. Synthetic runs can be triggered from inside the
+              app, and the same patients then appear in the PTL, action lists, and the patient 360 screen.
+            </p>
+          </div>
+          <div class="hero-quick-actions">
+            <form id="patient-search-form" class="search-form">
+              <label for="patient-search-input">Patient search</label>
+              <div class="search-row">
+                <input id="patient-search-input" type="search" placeholder="Search by name, NHS number, or hospital number">
+                <button type="submit" class="primary-button">Find Patient</button>
+              </div>
+              <div id="search-results" class="search-results empty-state">Search results will appear here.</div>
+            </form>
+            <div class="hero-side-card">
+              <span class="hero-side-label">Current run status</span>
+              <strong id="hero-run-title">No simulation selected</strong>
+              <p id="hero-run-copy">Start a synthetic run below or open one of the recent runs to watch source data enter the app.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="overview-section" class="section-block">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Service Overview</p>
+              <h2>Pathway pressure, standards, and integration health.</h2>
+            </div>
+            <button type="button" class="ghost-button" id="refresh-dashboard">Refresh Data</button>
+          </div>
+          <div id="overview-metrics" class="metric-grid"></div>
+          <div class="split-grid">
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Pathway Mix</h3>
+                <p>Live distribution of pathways by cancer type and current status.</p>
+              </div>
+              <div id="pathway-mix" class="stack-list"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Team Performance</h3>
+                <p>Operational pressure derived from pathway status, breach risk, and action ownership.</p>
+              </div>
+              <div id="team-performance" class="stack-list"></div>
+            </article>
+          </div>
+          <div class="split-grid">
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Integration Health</h3>
+                <p>Recent source-system outcomes from the audit log and dead-letter queue.</p>
+              </div>
+              <div id="integration-health" class="source-grid"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Narrative</h3>
+                <p>A plain-English summary of what the system is doing right now.</p>
+              </div>
+              <div id="overview-narrative" class="narrative-card empty-state">The overview narrative will appear after the data loads.</div>
+            </article>
+          </div>
+        </section>
+
+        <section id="ptl-section" class="section-block">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Patient Tracking List</p>
+              <h2>Live PTL fed by the current canonical data model.</h2>
+            </div>
+          </div>
+          <div class="filter-bar">
+            <label>
+              <span>Search</span>
+              <input id="ptl-search" type="search" placeholder="Surname or NHS number">
+            </label>
+            <label>
+              <span>Pathway status</span>
+              <select id="ptl-status">
+                <option value="">All</option>
+                <option value="awaiting_diagnostics">Awaiting diagnostics</option>
+                <option value="awaiting_mdt">Awaiting MDT</option>
+                <option value="awaiting_treatment">Awaiting treatment</option>
+                <option value="on_treatment">On treatment</option>
+                <option value="active_monitoring">Active monitoring</option>
+                <option value="completed">Completed</option>
+              </select>
+            </label>
+            <label>
+              <span>Breach risk</span>
+              <select id="ptl-risk">
+                <option value="">All</option>
+                <option value="breached">Breached</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </label>
+            <button type="button" class="primary-button" id="apply-ptl-filters">Apply Filters</button>
+          </div>
+          <div id="ptl-summary-cards" class="mini-metric-grid"></div>
+          <div class="table-shell">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Patient</th>
+                  <th>Cancer Type</th>
+                  <th>Status</th>
+                  <th>Days On Pathway</th>
+                  <th>Breach Risk</th>
+                  <th>Next Action</th>
+                  <th>Team</th>
+                </tr>
+              </thead>
+              <tbody id="ptl-table-body">
+                <tr><td colspan="7" class="table-empty">Loading PTL data...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="actions-section" class="section-block">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Actions</p>
+              <h2>Worklist items generated from pathways, Somerset tracking, and downstream events.</h2>
+            </div>
+          </div>
+          <div id="action-summary" class="mini-metric-grid"></div>
+          <div id="action-list" class="card-list"></div>
+        </section>
+
+        <section id="patient-section" class="section-block">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Patient 360</p>
+              <h2>Clinical summary, pathway lineage, and source-system evidence.</h2>
+            </div>
+            <div id="selected-patient-badge" class="status-chip compact">
+              <span class="status-label">Selected patient</span>
+              <strong>None</strong>
+            </div>
+          </div>
+          <div id="patient-empty" class="empty-state panel-lite">Choose a patient from search, the PTL, actions, or a simulation run.</div>
+          <div id="patient-content" class="patient-layout is-hidden">
+            <div id="patient-headline" class="patient-headline"></div>
+            <div class="patient-grid">
+              <article class="panel">
+                <div class="panel-heading">
+                  <h3>Patient Summary</h3>
+                  <p>Demographics and core pathway details.</p>
+                </div>
+                <div id="patient-summary" class="definition-grid"></div>
+              </article>
+              <article class="panel">
+                <div class="panel-heading">
+                  <h3>Source Provenance</h3>
+                  <p>Which systems are contributing visible data to this record.</p>
+                </div>
+                <div id="patient-provenance" class="stack-list"></div>
+              </article>
+            </div>
+            <div class="patient-grid">
+              <article class="panel">
+                <div class="panel-heading">
+                  <h3>Pathway Timeline</h3>
+                  <p>Chronological events stitched across Somerset, ICE, RIS, and treatment systems.</p>
+                </div>
+                <div id="patient-timeline" class="timeline-list"></div>
+              </article>
+              <article class="panel">
+                <div class="panel-heading">
+                  <h3>Navigation And Actions</h3>
+                  <p>Actionable items returned by the current backend model.</p>
+                </div>
+                <div id="patient-navigation" class="card-list compact-list"></div>
+              </article>
+            </div>
+            <div class="patient-grid">
+              <article class="panel">
+                <div class="panel-heading">
+                  <h3>Pathology</h3>
+                  <p>Results from ICE / WinPath including structured summaries where available.</p>
+                </div>
+                <div id="patient-pathology" class="card-list compact-list"></div>
+              </article>
+              <article class="panel">
+                <div class="panel-heading">
+                  <h3>Radiology And Treatment</h3>
+                  <p>Imaging, SACT, and radiotherapy records surfaced through the API.</p>
+                </div>
+                <div id="patient-treatment" class="card-list compact-list"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="integration-section" class="section-block">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Integration Flow</p>
+              <h2>Trigger synthetic data and watch it land in the main product.</h2>
+            </div>
+          </div>
+          <div class="split-grid">
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Run Synthetic Traffic</h3>
+                <p>Generate clinically coherent journeys from the in-scope source systems and replay them through the integration lane.</p>
+              </div>
+              <form id="run-form" class="run-form">
+                <label>
+                  <span>Patient journeys</span>
+                  <input type="number" id="patient-count" min="1" max="100" value="6">
+                </label>
+                <label>
+                  <span>Seed</span>
+                  <input type="number" id="seed" value="360">
+                </label>
+                <label>
+                  <span>Anchor date</span>
+                  <input type="date" id="anchor-date">
+                </label>
+                <div class="source-picker">
+                  <div class="source-picker-topline">
+                    <span>Source systems</span>
+                    <button type="button" class="ghost-button small-button" id="select-all-sources">Select all</button>
+                  </div>
+                  <div id="source-options" class="source-options"></div>
+                </div>
+                <div class="button-row">
+                  <button type="submit" class="primary-button">Start Run</button>
+                  <button type="button" class="ghost-button" id="refresh-runs">Refresh Runs</button>
+                </div>
+                <p id="run-feedback" class="form-feedback"></p>
+              </form>
+            </article>
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Flow Lanes</h3>
+                <p>The active run is rendered in the same architecture used throughout the demo.</p>
+              </div>
+              <div id="pipeline-lanes" class="lane-grid"></div>
+            </article>
+          </div>
+          <div class="split-grid">
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Recent Runs</h3>
+                <p>Select a run to inspect its event stream and load the created patients back into Patient 360.</p>
+              </div>
+              <div id="runs-list" class="card-list"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Created Patients</h3>
+                <p>These records have already passed through the source, integration, database, and API lanes.</p>
+              </div>
+              <div id="run-patients" class="card-list"></div>
+            </article>
+          </div>
+          <div class="split-grid">
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Live Stream</h3>
+                <p>Each event explains what the payload was, how the integration layer processed it, and which CDM tables were touched.</p>
+              </div>
+              <div id="stream-list" class="stream-list"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading">
+                <h3>Database And API Confirmation</h3>
+                <p>The app confirms when replayed data has landed and become queryable in the current interface.</p>
+              </div>
+              <div id="database-deltas" class="mini-metric-grid"></div>
+              <div id="api-checks" class="card-list compact-list"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="/static/cancer360_app.js"></script>
+</body>
+</html>

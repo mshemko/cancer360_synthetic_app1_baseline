@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancer 360 Integration Studio</title>
+  <link rel="stylesheet" href="/static/integration_studio.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Cancer 360 Operator Console</p>
+        <h1>Integration Studio</h1>
+        <p class="hero-text">
+          Trigger synthetic source-system activity, watch it move through the Mirth/TIE integration lane,
+          confirm what lands in the Cancer 360 database, and then inspect the same records through the live API.
+        </p>
+      </div>
+      <div class="hero-panel">
+        <div class="hero-chip">
+          <span class="hero-chip-label">Flow</span>
+          <span class="hero-chip-value">Sources -> Mirth/TIE -> PostgreSQL -> API -> Console</span>
+        </div>
+        <div class="hero-chip">
+          <span class="hero-chip-label">Demo Views</span>
+          <span class="hero-chip-value"><a href="/app">Main App</a>, <a href="/studio/playback">Playback Mode</a>, and <a href="/docs" target="_blank" rel="noreferrer">API Docs</a></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel panel-form">
+        <div class="panel-header">
+          <h2>Run Controls</h2>
+          <p>Choose how much synthetic traffic to generate and which source systems should participate.</p>
+        </div>
+        <form id="run-form" class="run-form">
+          <label>
+            <span>Patient journeys</span>
+            <input type="number" id="patient-count" min="1" max="100" value="6">
+          </label>
+          <label>
+            <span>Seed</span>
+            <input type="number" id="seed" value="360">
+          </label>
+          <label>
+            <span>Anchor date</span>
+            <input type="date" id="anchor-date">
+          </label>
+          <div class="source-picker">
+            <div class="source-picker-header">
+              <span>Source systems</span>
+              <button type="button" class="ghost-button" id="select-all-sources">Select all</button>
+            </div>
+            <div id="source-options" class="source-options"></div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="primary-button">Start Simulation Run</button>
+            <button type="button" class="ghost-button" id="refresh-runs">Refresh Runs</button>
+          </div>
+          <p id="run-feedback" class="form-feedback"></p>
+        </form>
+      </section>
+
+      <section class="panel panel-pipeline">
+        <div class="panel-header">
+          <h2>Pipeline View</h2>
+          <p>The same synthetic payloads are shown at every layer so it is easy to explain what is happening.</p>
+        </div>
+        <div id="pipeline-lanes" class="pipeline-lanes"></div>
+      </section>
+
+      <section class="panel panel-runs">
+        <div class="panel-header">
+          <h2>Recent Runs</h2>
+          <p>Select any run to inspect its stream, created patients, and downstream API effects.</p>
+        </div>
+        <div id="runs-list" class="runs-list"></div>
+      </section>
+
+      <section class="panel panel-patients">
+        <div class="panel-header">
+          <h2>Patients Created In This Run</h2>
+          <p>These cards link the simulation back to concrete patient, pathway, and navigation data.</p>
+        </div>
+        <div id="patients-list" class="patients-list"></div>
+      </section>
+
+      <section class="panel panel-stream panel-wide">
+        <div class="panel-header">
+          <h2>Live Stream</h2>
+          <p>Each entry explains what the synthetic source emitted, what the integration layer did with it, and which CDM tables were touched.</p>
+        </div>
+        <div id="stream-list" class="stream-list"></div>
+      </section>
+
+      <section class="panel panel-data">
+        <div class="panel-header">
+          <h2>Database Impact</h2>
+          <p>Count deltas show where the replay changed the Cancer 360 canonical model.</p>
+        </div>
+        <div id="database-deltas" class="table-grid"></div>
+      </section>
+
+      <section class="panel panel-api">
+        <div class="panel-header">
+          <h2>API Checks</h2>
+          <p>These checks confirm the replayed records are visible back through the live FastAPI application.</p>
+        </div>
+        <div id="api-checks" class="checks-list"></div>
+      </section>
+
+      <section class="panel panel-patient-view panel-wide">
+        <div class="panel-header">
+          <h2>Patient 360 Inspector</h2>
+          <p>Pick a created patient to load the same data that the main app and API expose after the replay.</p>
+        </div>
+        <div id="patient-view" class="patient-view empty-state">Choose a patient card from the run above.</div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/integration_studio.js"></script>
+</body>
+</html>

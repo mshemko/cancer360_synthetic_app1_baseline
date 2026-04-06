@@ -1,6 +1,7 @@
 """Application configuration via environment variables."""
 
 from pydantic_settings import BaseSettings
+from pydantic import field_validator
 from functools import lru_cache
 
 
@@ -23,6 +24,19 @@ class Settings(BaseSettings):
     trust_code: str = "RYJ"
     trust_name: str = "Imperial College Healthcare NHS Trust"
     debug: bool = True
+
+    @field_validator("debug", mode="before")
+    @classmethod
+    def parse_debug(cls, value):
+        if isinstance(value, bool):
+            return value
+        if isinstance(value, str):
+            normalized = value.strip().lower()
+            if normalized in {"1", "true", "yes", "on", "debug", "dev", "development"}:
+                return True
+            if normalized in {"0", "false", "no", "off", "release", "prod", "production"}:
+                return False
+        return value
 
     class Config:
         env_file = ".env"

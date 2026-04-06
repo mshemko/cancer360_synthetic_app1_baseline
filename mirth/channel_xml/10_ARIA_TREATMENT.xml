@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mirth-channel-skeleton name="ARIA_TREATMENT" version="1.0">
+  <summary>Processes Aria treatment CSV extracts and writes SACT or radiotherapy records by treatment group.</summary>
+  <channel-group>cancer360-files</channel-group>
+  <source-connector type="file-reader">
+    <directory>C:\cancer360\incoming\aria</directory>
+    <pattern>aria_treatment_*.csv</pattern>
+    <move-to-processed>C:\cancer360\incoming\aria\processed</move-to-processed>
+    <move-to-error>C:\cancer360\incoming\aria\error</move-to-error>
+    <data-type>Raw</data-type>
+  </source-connector>
+  <transformer>
+    <script-file>mirth/channels/transformers/ARIA_TREATMENT.js</script-file>
+    <required-code-template>UuidHelpers</required-code-template>
+    <required-code-template>DateHelpers</required-code-template>
+    <required-code-template>CsvHelpers</required-code-template>
+    <required-code-template>DbHelpers</required-code-template>
+  </transformer>
+  <destinations>
+    <destination order="1" type="javascript-transformer">Group CSV rows by treatment group and branch into SACT or radiotherapy mapping.</destination>
+    <destination order="2" type="database-writer" sql-key="sql.sact_course.upsert">Upsert SACT course rows for systemic treatments.</destination>
+    <destination order="3" type="database-writer" sql-key="sql.sact_cycle.upsert">Upsert SACT cycle rows.</destination>
+    <destination order="4" type="database-writer" sql-key="sql.sact_drug.upsert">Upsert SACT drug administrations.</destination>
+    <destination order="5" type="database-writer" sql-key="sql.radiotherapy_course.upsert">Upsert radiotherapy course rows.</destination>
+    <destination order="6" type="database-writer" sql-key="sql.radiotherapy_fraction.upsert">Upsert radiotherapy fraction rows.</destination>
+    <destination order="7" type="database-writer">Write integration audit row.</destination>
+    <destination order="8" type="database-writer">Write dead-letter row on exception.</destination>
+  </destinations>
+</mirth-channel-skeleton>

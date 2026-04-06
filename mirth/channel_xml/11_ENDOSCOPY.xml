@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mirth-channel-skeleton name="ENDOSCOPY" version="1.0">
+  <summary>Processes endoscopy CSV extracts and writes appointments plus follow-up cancer actions.</summary>
+  <channel-group>cancer360-files</channel-group>
+  <source-connector type="file-reader">
+    <directory>C:\cancer360\incoming\endoscopy</directory>
+    <pattern>endoscopy_*.csv</pattern>
+    <move-to-processed>C:\cancer360\incoming\endoscopy\processed</move-to-processed>
+    <move-to-error>C:\cancer360\incoming\endoscopy\error</move-to-error>
+    <data-type>Raw</data-type>
+  </source-connector>
+  <transformer>
+    <script-file>mirth/channels/transformers/ENDOSCOPY.js</script-file>
+    <required-code-template>UuidHelpers</required-code-template>
+    <required-code-template>DateHelpers</required-code-template>
+    <required-code-template>CsvHelpers</required-code-template>
+    <required-code-template>DbHelpers</required-code-template>
+  </transformer>
+  <destinations>
+    <destination order="1" type="javascript-transformer">Resolve patient and latest pathway context from NHS number.</destination>
+    <destination order="2" type="database-writer" sql-key="sql.appointment.upsert">Upsert appointment row.</destination>
+    <destination order="3" type="database-writer" sql-key="sql.cancer_action.upsert">Upsert cancer action row for report or follow-up.</destination>
+    <destination order="4" type="database-writer">Write integration audit row.</destination>
+    <destination order="5" type="database-writer">Write dead-letter row on exception.</destination>
+  </destinations>
+</mirth-channel-skeleton>

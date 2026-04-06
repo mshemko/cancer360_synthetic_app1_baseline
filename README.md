@@ -19,52 +19,108 @@ Hospital Source Systems
 ## Quick Start
 
 ### Prerequisites
-- Docker & Docker Compose
-- Python 3.12+
-- Node.js 20+ (for frontend development)
+- Python 3.11+
+- PostgreSQL running on `localhost:5432` with credentials matching `backend/app/config.py`
+- Node.js 20+ (optional, for frontend development)
 
-### 1. Start the database
+### 1. Create and activate a virtual environment
 
-```bash
-docker compose up db -d
+```powershell
+C:\Users\MS234\.conda\envs\llm_v1\python.exe -m venv .venv
+.\.venv\Scripts\Activate.ps1
 ```
 
-### 2. Seed with synthetic data
+### 2. Install backend dependencies
 
-```bash
-pip install sqlalchemy asyncpg
-python scripts/seed_database.py
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r backend\requirements.txt
 ```
 
 ### 3. Start the backend API
 
-```bash
+```powershell
 cd backend
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+..\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-API docs: http://localhost:8000/docs
+API docs: http://127.0.0.1:8000/docs
 
-### 4. Run the integration engine (optional)
+### 4. Seed with synthetic data (optional)
 
-```bash
+```powershell
+.\.venv\Scripts\python.exe scripts\seed_database.py
+```
+
+### 5. Run the integration engine (optional)
+
+```powershell
 cd integration_engine
-pip install -r requirements.txt
-python replay.py  # Replays synthetic HL7/CSV/XML through the pipeline
+..\.venv\Scripts\python.exe replay.py
 ```
 
-### Full Docker Compose
+## Native Integration Simulation
 
-```bash
-docker compose up --build
+The repo now includes a native Windows-friendly simulation flow under [source_systems](/c:/Users/MS234/Desktop/cancer360/source_systems) and [tie](/c:/Users/MS234/Desktop/cancer360/tie). It does not require Docker or Git.
+
+### Generate journeys
+
+```powershell
+.\.venv\Scripts\python.exe source_systems\scenario_engine.py --patients 50 --output data\scenarios\journeys.json
 ```
+
+### Generate source payloads
+
+```powershell
+.\.venv\Scripts\python.exe source_systems\run_all.py --scenarios data\scenarios\journeys.json --output-dir data
+```
+
+This creates:
+- HL7 payloads for PAS, ICE, RIS, and Aria under `data\hl7\`
+- CSV extracts for Somerset, Aria, and Endoscopy under `data\csv\`
+- `data\manifest.json` for deterministic replay
+
+### Replay directly into PostgreSQL
+
+```powershell
+.\.venv\Scripts\python.exe -m tie replay --data-dir data
+```
+
+### Run the live TIE
+
+```powershell
+.\.venv\Scripts\python.exe -m tie
+```
+
+Then in another terminal:
+
+```powershell
+.\.venv\Scripts\python.exe source_systems\run_all.py --scenarios data\scenarios\journeys.json --output-dir data --mode replay --mllp-host 127.0.0.1 --mllp-port 2575 --file-drop-dir incoming
+```
+
+### Useful simulation API routes
+
+- `GET /api/v1/integration/status` for audit/DLQ/source-system health
+- `GET /api/v1/patients/{nhs_number}/navigation` for Somerset/endoscopy-derived navigation items
+- `GET /api/v1/pathways/{pathway_id}/navigation` for pathway-scoped navigation items
+- `GET /studio` for the built-in Integration Studio operator console
+- `GET /studio/playback` for the step-through replay screen with pause and forward/back controls
+- `POST /api/v1/simulation/runs` to trigger a synthetic replay from the app itself
+
+## Mirth Replacement Design
+
+If you want Mirth Connect to replace the Python `tie` layer completely, start with:
+
+- [mirth/CHANNEL_BLUEPRINT.md](/c:/Users/MS234/Desktop/cancer360/mirth/CHANNEL_BLUEPRINT.md)
+- [mirth/sql/upserts.sql](/c:/Users/MS234/Desktop/cancer360/mirth/sql/upserts.sql)
+- [mirth/code_templates/README.md](/c:/Users/MS234/Desktop/cancer360/mirth/code_templates/README.md)
+- [mirth/channels/channel_manifest.json](/c:/Users/MS234/Desktop/cancer360/mirth/channels/channel_manifest.json)
+- [mirth/channel_xml/README.md](/c:/Users/MS234/Desktop/cancer360/mirth/channel_xml/README.md)
+- [mirth/DEPLOYMENT_CHECKLIST.md](/c:/Users/MS234/Desktop/cancer360/mirth/DEPLOYMENT_CHECKLIST.md)
 
 ## Project Structure
 
 ```
 cancer360/
-├── docker-compose.yml          # Full stack orchestration
 ├── init.sql                    # CDM PostgreSQL schema (20+ tables)
 ├── backend/                    # FastAPI application
 │   └── app/
@@ -136,3 +192,4 @@ The CDM follows the NHS FDP ontology pattern with these core entities:
 | PAS (CDS) | SFTP file drop | CDS v6.3 CSV | episode, appointment |
 | MDT (Infoflex) | REST API | JSON | mdt_discussion |
 | e-RS | REST API | JSON | referral, appointment |
+

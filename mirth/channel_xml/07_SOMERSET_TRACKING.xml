@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mirth-channel-skeleton name="SOMERSET_TRACKING" version="1.0">
+  <summary>Processes Somerset tracking comments and maps them to completed or informational cancer actions.</summary>
+  <channel-group>cancer360-files</channel-group>
+  <source-connector type="file-reader">
+    <directory>C:\cancer360\incoming\somerset</directory>
+    <pattern>somerset_tracking_*.csv</pattern>
+    <move-to-processed>C:\cancer360\incoming\somerset\processed</move-to-processed>
+    <move-to-error>C:\cancer360\incoming\somerset\error</move-to-error>
+    <data-type>Raw</data-type>
+  </source-connector>
+  <transformer>
+    <script-file>mirth/channels/transformers/SOMERSET_TRACKING.js</script-file>
+    <required-code-template>UuidHelpers</required-code-template>
+    <required-code-template>DateHelpers</required-code-template>
+    <required-code-template>CsvHelpers</required-code-template>
+    <required-code-template>DbHelpers</required-code-template>
+  </transformer>
+  <destinations>
+    <destination order="1" type="javascript-transformer">Resolve pathway and patient context from the source Somerset pathway identifier.</destination>
+    <destination order="2" type="database-writer" sql-key="sql.cancer_action.upsert">Upsert cancer action row.</destination>
+    <destination order="3" type="database-writer">Write integration audit row.</destination>
+    <destination order="4" type="database-writer">Write dead-letter row on exception.</destination>
+  </destinations>
+</mirth-channel-skeleton>

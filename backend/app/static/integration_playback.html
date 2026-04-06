@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancer 360 Integration Playback</title>
+  <link rel="stylesheet" href="/static/cancer360_shell.css">
+  <link rel="stylesheet" href="/static/integration_playback.css">
+</head>
+<body>
+  <header class="shell-nav">
+    <div class="shell-brand">
+      <span class="shell-brand-mark">N</span>
+      <span>Cancer 360</span>
+    </div>
+    <nav class="shell-links">
+      <a class="shell-link" href="/app">Main App</a>
+      <a class="shell-link" href="/integration">Integration Flow</a>
+      <a class="shell-link active" href="/playback">Playback</a>
+      <a class="shell-link" href="/seeding">Seeding</a>
+    </nav>
+    <div class="shell-spacer"></div>
+    <div class="shell-meta">Step-through replay of the seeded integration flow</div>
+  </header>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Cancer 360 Demo Mode</p>
+        <h1>Integration Playback</h1>
+        <p class="hero-text">
+          Step through a completed synthetic run lane by lane. Pause, rewind, move event by event,
+          and use the narration panel to explain how data crosses from source systems into the integration layer,
+          the database, the API, and the visible patient record.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <a class="hero-link" href="/app">Main App</a>
+        <a class="hero-link" href="/integration">Integration Flow</a>
+        <a class="hero-link" href="/seeding">Seeding</a>
+        <a class="hero-link" href="/docs" target="_blank" rel="noreferrer">API Docs</a>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel panel-controls">
+        <div class="panel-header">
+          <h2>Playback Controls</h2>
+          <p>Choose a finished run and drive the explanation in real time.</p>
+        </div>
+        <div class="controls-grid">
+          <label>
+            <span>Run</span>
+            <select id="run-select"></select>
+          </label>
+          <label>
+            <span>Speed</span>
+            <select id="speed-select">
+              <option value="1400">Slow</option>
+              <option value="900" selected>Normal</option>
+              <option value="450">Fast</option>
+            </select>
+          </label>
+        </div>
+        <div class="button-row">
+          <button type="button" class="ghost-button" id="refresh-runs">Refresh</button>
+          <button type="button" class="ghost-button" id="reset-playback">Reset</button>
+          <button type="button" class="ghost-button" id="step-back">Back</button>
+          <button type="button" class="primary-button" id="play-pause">Play</button>
+          <button type="button" class="ghost-button" id="step-forward">Forward</button>
+        </div>
+        <div class="progress-block">
+          <div class="progress-topline">
+            <strong id="progress-label">No run loaded</strong>
+            <span id="progress-count">0 / 0</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-run-summary">
+        <div class="panel-header">
+          <h2>Run Summary</h2>
+          <p>Quick context for the chosen replay.</p>
+        </div>
+        <div id="run-summary" class="summary-grid"></div>
+      </section>
+
+      <section class="panel panel-lanes panel-wide">
+        <div class="panel-header">
+          <h2>Animated Lane View</h2>
+          <p>The active event moves through the same architecture the demo uses in the real app.</p>
+        </div>
+        <div id="lane-board" class="lane-board"></div>
+      </section>
+
+      <section class="panel panel-narration">
+        <div class="panel-header">
+          <h2>What Is Happening Now</h2>
+          <p>Use this pane as the live explanation script during a walkthrough.</p>
+        </div>
+        <div id="narration-card" class="narration-card empty-state">Select a finished run to begin playback.</div>
+      </section>
+
+      <section class="panel panel-impact">
+        <div class="panel-header">
+          <h2>Current Impact</h2>
+          <p>The active event highlights the main tables and downstream artifacts it affects.</p>
+        </div>
+        <div id="impact-card" class="impact-card empty-state">Impact details will appear here during playback.</div>
+      </section>
+
+      <section class="panel panel-impact">
+        <div class="panel-header">
+          <h2>Payload Preview</h2>
+          <p>Sample HL7 or CSV content for the currently highlighted event.</p>
+        </div>
+        <pre id="payload-preview" class="impact-card empty-state">Payload preview will appear here during playback.</pre>
+      </section>
+
+      <section class="panel panel-script panel-wide">
+        <div class="panel-header">
+          <h2>Event Script</h2>
+          <p>Every recorded stream event is listed here. The current step stays highlighted as playback advances.</p>
+        </div>
+        <div id="event-script" class="event-script"></div>
+      </section>
+
+      <section class="panel panel-patient panel-wide">
+        <div class="panel-header">
+          <h2>Patient Readback</h2>
+          <p>Open the patient returned by the chosen run and prove the replay is visible in the main app data.</p>
+        </div>
+        <div id="patient-selector" class="patient-selector"></div>
+        <div id="patient-readback" class="patient-readback empty-state">Pick a patient from the finished run to load Patient 360.</div>
+      </section>
+    </main>
+  </div>
+  <script src="/static/integration_playback.js"></script>
+</body>
+</html>

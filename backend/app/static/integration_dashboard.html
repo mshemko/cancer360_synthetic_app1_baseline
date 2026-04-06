@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancer 360 Integration Flow</title>
+  <link rel="stylesheet" href="/static/cancer360_shell.css">
+  <link rel="stylesheet" href="/static/integration_dashboard.css">
+</head>
+<body>
+  <header class="shell-nav">
+    <div class="shell-brand">
+      <span class="shell-brand-mark">N</span>
+      <span>Cancer 360</span>
+    </div>
+    <nav class="shell-links">
+      <a class="shell-link" href="/app">Main App</a>
+      <a class="shell-link active" href="/integration">Integration Flow</a>
+      <a class="shell-link" href="/playback">Playback</a>
+      <a class="shell-link" href="/seeding">Seeding</a>
+    </nav>
+    <div class="shell-spacer"></div>
+    <div class="shell-meta" id="integration-auth">Connecting to demo auth...</div>
+  </header>
+
+  <div class="page-wrap">
+    <div class="page-inner">
+      <div class="page-titlebar">
+        <div>
+          <h1>Animated Integration Dashboard</h1>
+          <p>A single visual view of synthetic source generation, Mirth/TIE orchestration, database writes, API readback, and the final Cancer 360 record.</p>
+        </div>
+        <div class="button-row">
+          <button type="button" class="ghost-button" id="integration-refresh">Refresh Runs</button>
+          <button type="button" class="primary-button" id="integration-play">Play Flow</button>
+        </div>
+      </div>
+
+      <div class="integration-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Run Controls</h2>
+              <p>Generate synthetic payloads and stream them through the integration lane.</p>
+            </div>
+          </div>
+          <div class="panel-body">
+            <form id="integration-form" class="run-form">
+              <label>
+                <span>Patient journeys</span>
+                <input type="number" id="patient-count" min="1" max="100" value="6">
+              </label>
+              <label>
+                <span>Seed</span>
+                <input type="number" id="seed" value="360">
+              </label>
+              <label>
+                <span>Anchor date</span>
+                <input type="date" id="anchor-date">
+              </label>
+              <div>
+                <div class="source-topline">
+                  <span>Source systems</span>
+                  <button type="button" class="ghost-button" id="source-all">Select all</button>
+                </div>
+                <div id="source-options" class="source-options"></div>
+              </div>
+              <button type="submit" class="primary-button">Start Synthetic Run</button>
+              <p id="run-feedback" class="muted-text"></p>
+            </form>
+            <div class="panel-spacer"></div>
+            <div class="panel-headerless">
+              <h3>Recent runs</h3>
+              <div id="runs-list" class="run-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel flow-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Live Flow Board</h2>
+              <p>The token moves from source emission to Mirth/TIE, the database, the API, and the visible app record.</p>
+            </div>
+            <div class="button-row">
+              <button type="button" class="ghost-button" id="integration-prev">Back</button>
+              <button type="button" class="ghost-button" id="integration-next">Forward</button>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="flow-board">
+              <div class="flow-packet" id="flow-packet"></div>
+              <div id="source-lane" class="flow-sources"></div>
+              <div class="flow-stage" data-stage="integration">
+                <span class="flow-stage-label">Mirth / TIE</span>
+                <strong>Transform and route</strong>
+                <p>Message validation, acknowledgements, file watching, and upserts.</p>
+              </div>
+              <div class="flow-stage" data-stage="database">
+                <span class="flow-stage-label">PostgreSQL</span>
+                <strong>Canonical data model</strong>
+                <p>Patient, pathway, actions, pathology, radiology, treatment, and audit rows.</p>
+              </div>
+              <div class="flow-stage" data-stage="api">
+                <span class="flow-stage-label">FastAPI</span>
+                <strong>Readback and aggregation</strong>
+                <p>PTL, Patient 360, actions, search, dashboard, and status endpoints.</p>
+              </div>
+              <div class="flow-stage" data-stage="app">
+                <span class="flow-stage-label">Cancer 360</span>
+                <strong>Visible to users</strong>
+                <p>Main app, playback, and patient drill-through.</p>
+              </div>
+            </div>
+            <div class="flow-stats" id="flow-stats"></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="integration-detail-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Current Event</h2>
+              <p>What the integration platform is doing right now.</p>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div id="current-event" class="event-card empty-state">Select a run to begin.</div>
+            <div id="payload-preview" class="code-block">Payload previews will appear here.</div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Generated Data</h2>
+              <p>Created patients, affected tables, and API confirmation.</p>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div id="created-patients" class="created-patient-list"></div>
+            <div id="database-deltas" class="stats-grid database-stats"></div>
+            <div id="api-checks" class="api-checks"></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Event Timeline</h2>
+            <p>Every generated event with the payload summary, lane, and impact tables.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div id="event-timeline" class="event-timeline"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="/static/integration_dashboard.js"></script>
+</body>
+</html>

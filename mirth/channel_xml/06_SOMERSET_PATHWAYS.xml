@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mirth-channel-skeleton name="SOMERSET_PATHWAYS" version="1.0">
+  <summary>Processes Somerset pathway CSV extracts and builds patient, referral, diagnosis, and cancer pathway records.</summary>
+  <channel-group>cancer360-files</channel-group>
+  <source-connector type="file-reader">
+    <directory>C:\cancer360\incoming\somerset</directory>
+    <pattern>somerset_pathways_*.csv</pattern>
+    <move-to-processed>C:\cancer360\incoming\somerset\processed</move-to-processed>
+    <move-to-error>C:\cancer360\incoming\somerset\error</move-to-error>
+    <data-type>Raw</data-type>
+  </source-connector>
+  <transformer>
+    <script-file>mirth/channels/transformers/SOMERSET_PATHWAYS.js</script-file>
+    <required-code-template>UuidHelpers</required-code-template>
+    <required-code-template>DateHelpers</required-code-template>
+    <required-code-template>CsvHelpers</required-code-template>
+    <required-code-template>DbHelpers</required-code-template>
+  </transformer>
+  <destinations>
+    <destination order="1" type="javascript-transformer">Parse CSV rows and derive breach metrics and next actions.</destination>
+    <destination order="2" type="database-writer" sql-key="sql.patient.upsert">Upsert patient row.</destination>
+    <destination order="3" type="database-writer" sql-key="sql.referral.upsert">Upsert referral row.</destination>
+    <destination order="4" type="database-writer" sql-key="sql.diagnosis.upsert">Upsert diagnosis row when populated.</destination>
+    <destination order="5" type="database-writer" sql-key="sql.cancer_pathway.upsert">Upsert cancer pathway row.</destination>
+    <destination order="6" type="database-writer">Write integration audit row.</destination>
+    <destination order="7" type="database-writer">Write dead-letter row on exception.</destination>
+  </destinations>
+</mirth-channel-skeleton>

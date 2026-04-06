@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancer 360</title>
+  <link rel="stylesheet" href="/static/cancer360_workspace.css?v=20260405g">
+</head>
+<body>
+  <header class="shell-nav c360-nav">
+    <div class="c360-nav-left">
+      <a class="c360-brand" href="/app" aria-label="Cancer 360 home">
+        <span class="c360-brand-mark">
+          <span class="c360-brand-q"></span>
+        </span>
+        <span class="c360-brand-label">Cancer 360</span>
+        <span class="c360-brand-chevron" aria-hidden="true"></span>
+      </a>
+
+      <nav class="c360-primary-nav" aria-label="Primary">
+        <a class="c360-nav-tab" data-route="ptl" href="/ptl">
+          <span class="tab-icon" data-icon="list"></span>
+          <span>Cancer PTL</span>
+        </a>
+        <a class="c360-nav-tab" data-route="actions" href="/actions">
+          <span class="tab-icon" data-icon="clipboard"></span>
+          <span>Cancer Actions</span>
+        </a>
+        <a class="c360-nav-tab" data-route="service" href="/service-overview">
+          <span class="tab-icon" data-icon="grid"></span>
+          <span>Service Overview</span>
+        </a>
+        <a class="c360-nav-tab" data-route="team" href="/team-overview">
+          <span class="tab-icon" data-icon="people"></span>
+          <span>Team Overview</span>
+        </a>
+        <details class="c360-plus-menu aux-menu">
+          <summary class="c360-nav-plus" aria-label="More tools">+</summary>
+          <div class="aux-menu-panel c360-plus-panel">
+            <div class="c360-plus-title">Simulation Tools</div>
+            <a href="/integration">Integration Flow</a>
+            <a href="/playback">Playback</a>
+            <a href="/seeding">Seeding</a>
+          </div>
+        </details>
+      </nav>
+    </div>
+
+    <div class="c360-nav-right">
+      <button class="nav-edit-button" type="button">
+        <span class="tab-icon" data-icon="pencil"></span>
+        <span>Edit</span>
+      </button>
+      <button class="nav-round-button" type="button" aria-label="Help">
+        <span class="tab-icon" data-icon="help"></span>
+      </button>
+      <button class="nav-round-button" type="button" aria-label="Notifications">
+        <span class="tab-icon" data-icon="bell"></span>
+      </button>
+      <div class="nav-avatar" id="nav-avatar" aria-label="User avatar">DU</div>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <div id="route-root"></div>
+  </main>
+
+  <div id="filter-root"></div>
+  <div id="drawer-root"></div>
+
+  <script src="/static/cancer360_workspace_core.js?v=20260405g"></script>
+  <script src="/static/cancer360_workspace_views.js?v=20260405g"></script>
+  <script src="/static/cancer360_workspace_drawer.js?v=20260405g"></script>
+  <script src="/static/cancer360_workspace_actions.js?v=20260405g"></script>
+  <script src="/static/cancer360_workspace_service.js?v=20260405g"></script>
+  <script src="/static/cancer360_workspace_monthly.js?v=20260405g"></script>
+  <script src="/static/cancer360_workspace_team.js?v=20260405g"></script>
+  <script src="/static/cancer360_workspace_boot.js?v=20260405g"></script>
+</body>
+</html>

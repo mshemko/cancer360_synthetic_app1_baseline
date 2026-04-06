@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mirth-channel-skeleton name="PAS_ADT" version="1.0">
+  <summary>Receives Cerner ADT traffic, upserts patient demographics, and creates inpatient episodes for admission-style events.</summary>
+  <channel-group>cancer360-hl7</channel-group>
+  <source-connector type="llp-listener">
+    <port>2575</port>
+    <data-type>HL7V2</data-type>
+    <ack-mode>auto</ack-mode>
+    <filters>
+      <sending-application>CERNER</sending-application>
+      <message-type>ADT^A01</message-type>
+      <message-type>ADT^A03</message-type>
+      <message-type>ADT^A04</message-type>
+    </filters>
+  </source-connector>
+  <transformer>
+    <script-file>mirth/channels/transformers/PAS_ADT.js</script-file>
+    <required-code-template>UuidHelpers</required-code-template>
+    <required-code-template>DateHelpers</required-code-template>
+    <required-code-template>DbHelpers</required-code-template>
+    <required-code-template>SourceRouting</required-code-template>
+  </transformer>
+  <destinations>
+    <destination order="1" type="javascript-transformer">Validate source and normalize patient identity.</destination>
+    <destination order="2" type="database-writer" sql-key="sql.patient.upsert">Upsert patient row.</destination>
+    <destination order="3" type="database-writer" sql-key="sql.episode.upsert">Upsert episode when event is admission or discharge related.</destination>
+    <destination order="4" type="database-writer">Write integration audit row.</destination>
+    <destination order="5" type="database-writer">Write dead-letter row on exception.</destination>
+  </destinations>
+</mirth-channel-skeleton>
