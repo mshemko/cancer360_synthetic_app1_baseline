@@ -10,7 +10,7 @@ from pathlib import Path
 import psycopg2
 
 
-DEFAULT_DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/cancer360"
+DEFAULT_DATABASE_URL = "postgresql://cancer360:localdev@localhost:5432/cancer360"
 
 
 def get_database_url() -> str:

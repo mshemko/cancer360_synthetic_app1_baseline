@@ -14,12 +14,23 @@ DB_ROOT = ROOT / "db"
 
 def ordered_canonical_files() -> list[Path]:
     canonical_dir = DB_ROOT / "schemas" / "canonical"
-    files = sorted(canonical_dir.glob("*.sql"), key=lambda path: path.name.lower())
-    patient_file = canonical_dir / "patient.sql"
-    if patient_file in files:
-        files.remove(patient_file)
-        files.insert(0, patient_file)
-    return files
+    dependency_order = [
+        "patient.sql",
+        "cancer_pathway.sql",
+        "mdt_meeting.sql",
+        "outpatient_appointment.sql",
+        "inpatient_encounter.sql",
+        "radiology.sql",
+        "histology.sql",
+        "endoscopy.sql",
+        "ipt.sql",
+        "tracking_comment.sql",
+        "mdt_booking.sql",
+        "mdt_note.sql",
+        "test_result.sql",
+        "cancer_treatment.sql",
+    ]
+    return [canonical_dir / filename for filename in dependency_order]
 
 
 def build_sql_order() -> list[Path]:
